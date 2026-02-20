@@ -6,46 +6,94 @@
   <title>戦国時代クイズ</title>
   <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <main class="app">
+    <!-- 戦国ヘッダー（※bodyの中、mainの中に置くのが正解） -->
     <header class="header">
-      <h1>戦国時代クイズ</h1>
-      <p>4択 / 1回10問 / 復習モード対応</p>
+      <div class="brand">
+        <div class="crest" aria-hidden="true">
+          <span class="crest-ring"></span>
+          <span class="crest-emblem"></span>
+        </div>
+
+        <div class="brand-text">
+          <h1>戦国時代クイズ</h1>
+          <p>四択 / 1回10問 / 復習モード対応</p>
+        </div>
+      </div>
+
+      <div class="header-kamon" aria-hidden="true">
+        <span class="kamon-dot"></span>
+        <span class="kamon-dot"></span>
+        <span class="kamon-dot"></span>
+      </div>
     </header>
 
-    <section id="home" class="card">
-      <h2>はじめる</h2>
-      <p>通常モードは毎回ランダムで10問出題します。</p>
+    <!-- HOME -->
+    <section id="home" class="card card-sengoku">
+      <h2 class="card-title">はじめる</h2>
+      <p class="card-sub">
+        通常モードは毎回ランダムで10問出題します。
+      </p>
+
       <div class="actions">
-        <button id="startBtn" class="btn btn-primary">通常モード開始</button>
-        <button id="reviewBtn" class="btn" disabled>復習モード開始</button>
+        <button id="startBtn" class="btn btn-primary">通常モード 開始</button>
+        <button id="reviewBtn" class="btn btn-ghost" disabled>復習モード 開始</button>
       </div>
+
       <p id="homeMessage" class="message" aria-live="polite"></p>
-    </section>
 
-    <section id="quiz" class="card hidden" aria-live="polite">
-      <div class="meta">
-        <span id="progress"></span>
-        <span id="modeLabel"></span>
+      <div class="seal" aria-hidden="true">
+        <span class="seal-text">勝</span>
       </div>
-      <h2 id="question"></h2>
-      <div id="choices" class="choices"></div>
-      <div id="feedback" class="feedback"></div>
-      <button id="nextBtn" class="btn btn-primary hidden">次へ</button>
     </section>
 
-    <section id="result" class="card hidden">
-      <h2>結果</h2>
-      <p id="score" class="score"></p>
-      <p id="rate"></p>
-      <p id="wrongCount"></p>
+    <!-- QUIZ -->
+    <section id="quiz" class="card card-sengoku hidden" aria-live="polite">
+      <div class="meta">
+        <span id="progress" class="badge">1/10</span>
+        <span id="modeLabel" class="badge badge-ghost">通常</span>
+      </div>
+
+      <h2 id="question" class="question">問題</h2>
+
+      <div id="choices" class="choices"></div>
+
+      <div id="feedback" class="feedback"></div>
+
+      <div class="actions actions-right">
+        <button id="nextBtn" class="btn btn-primary hidden">次へ</button>
+      </div>
+
+      <div class="divider" aria-hidden="true"></div>
+      <p class="hint">※ 武士は焦らない。落ち着いて選ぶのだ。</p>
+    </section>
+
+    <!-- RESULT -->
+    <section id="result" class="card card-sengoku hidden">
+      <h2 class="card-title">戦果</h2>
+
+      <p id="score" class="result-line"></p>
+      <p id="rate" class="result-line"></p>
+      <p id="wrongCount" class="result-line"></p>
+
       <div class="actions">
         <button id="backBtn" class="btn btn-primary">ホームに戻る</button>
       </div>
+
+      <div class="result-banner" aria-hidden="true">
+        <span class="banner-text">天下取りは一歩ずつ</span>
+      </div>
     </section>
+
+    <footer class="footer">
+      <span>© Sengoku Quiz</span>
+      <span class="footer-dot">・</span>
+      <span>Made for fun</span>
+    </footer>
   </main>
 
   <script src="app.js" defer></script>
 </body>
 </html>
-<!-- update -->
