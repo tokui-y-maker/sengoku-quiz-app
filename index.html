@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>戦国時代クイズ</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>戦国時代クイズ</h1>
+      <p>4択 / 1回10問 / 復習モード対応</p>
+    </header>
+
+    <section id="home" class="card">
+      <h2>はじめる</h2>
+      <p>通常モードは毎回ランダムで10問出題します。</p>
+      <div class="actions">
+        <button id="startBtn" class="btn btn-primary">通常モード開始</button>
+        <button id="reviewBtn" class="btn" disabled>復習モード開始</button>
+      </div>
+      <p id="homeMessage" class="message" aria-live="polite"></p>
+    </section>
+
+    <section id="quiz" class="card hidden" aria-live="polite">
+      <div class="meta">
+        <span id="progress"></span>
+        <span id="modeLabel"></span>
+      </div>
+      <h2 id="question"></h2>
+      <div id="choices" class="choices"></div>
+      <div id="feedback" class="feedback"></div>
+      <button id="nextBtn" class="btn btn-primary hidden">次へ</button>
+    </section>
+
+    <section id="result" class="card hidden">
+      <h2>結果</h2>
+      <p id="score" class="score"></p>
+      <p id="rate"></p>
+      <p id="wrongCount"></p>
+      <div class="actions">
+        <button id="backBtn" class="btn btn-primary">ホームに戻る</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
