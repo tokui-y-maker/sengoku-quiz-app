@@ -47,12 +47,13 @@ python3 -m http.server 8000
   "question": "問題文",
   "choices": ["A", "B", "C", "D"],
   "answerIndex": 0,
-  "explanation": "解説",
-  "tags": ["人物", "合戦"],
-  "era": "戦国中期"
+  "difficulty": "easy",
+  "explanation": "解説（任意）"
 }
 ```
 
 - `choices` は4件
 - `answerIndex` は0〜3
+- `difficulty` は `easy` / `normal` / `hard`（任意）
+- `explanation` は任意（ある場合のみ不正解時に表示）
 

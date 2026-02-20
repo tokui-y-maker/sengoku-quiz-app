@@ -93,14 +93,19 @@ function answer(selected) {
 
   const q = state.currentSet[state.index];
   const ok = selected === q.answerIndex;
+  const explanation = typeof q.explanation === "string" ? q.explanation : "";
 
   if (ok) {
     state.score += 1;
     feedbackEl.classList.add("ok");
-    feedbackEl.innerHTML = `<strong>正解</strong><br>解説: ${q.explanation}`;
+    feedbackEl.innerHTML = explanation
+      ? `<strong>正解</strong><br>解説: ${explanation}`
+      : "<strong>正解</strong>";
   } else {
     feedbackEl.classList.add("ng");
-    feedbackEl.innerHTML = `<strong>不正解（正解: ${labels[q.answerIndex]}）</strong><br>解説: ${q.explanation}`;
+    feedbackEl.innerHTML = explanation
+      ? `<strong>不正解（正解: ${labels[q.answerIndex]}）</strong><br>解説: ${explanation}`
+      : `<strong>不正解（正解: ${labels[q.answerIndex]}）</strong>`;
     if (state.mode === "normal" && !state.wrongFromNormal.some((x) => x.id === q.id)) {
       state.wrongFromNormal.push(q);
     }
@@ -169,7 +174,8 @@ async function init() {
       && Number.isInteger(q.answerIndex)
       && q.answerIndex >= 0
       && q.answerIndex <= 3
-      && typeof q.explanation === "string"
+      && (q.explanation === undefined || typeof q.explanation === "string")
+      && (q.difficulty === undefined || ["easy", "normal", "hard"].includes(q.difficulty))
     );
 
     if (!valid) throw new Error("questions.json の形式が不正です");
