@@ -1,102 +1,253 @@
-[
-  {
-    "id": 1,
-    "difficulty": "easy",
-    "question": "戦国時代の始まりの目安としてよく挙げられる出来事は？",
-    "choices": ["応仁の乱", "大化の改新", "承久の乱", "大政奉還"],
-    "answerIndex": 0,
-    "explanation": "一般に戦国時代の起点は、室町幕府の権威が揺らいだ応仁の乱（1467年）を目安に語られることが多い。",
-    "tags": ["時代", "用語"],
-    "era": "室町後期"
-  },
-  {
-    "id": 2,
-    "difficulty": "easy",
-    "question": "織田信長が1560年に今川義元を破った戦いは？",
-    "choices": ["桶狭間の戦い", "長篠の戦い", "関ヶ原の戦い", "川中島の戦い"],
-    "answerIndex": 0,
-    "explanation": "桶狭間の戦いで信長は少数で奇襲し、義元を討ち取ったとされる。",
-    "tags": ["合戦", "人物"],
-    "era": "戦国中期"
-  },
-  {
-    "id": 3,
-    "difficulty": "normal",
-    "question": "織田信長が1571年に焼き討ちしたとされる宗教勢力の拠点は？",
-    "choices": ["比叡山延暦寺", "石山本願寺", "高野山金剛峯寺", "善光寺"],
-    "answerIndex": 0,
-    "explanation": "比叡山（延暦寺）の焼き討ちは、武装勢力化した僧兵への強硬策として語られる。",
-    "tags": ["宗教", "人物"],
-    "era": "戦国中期"
-  },
-  {
-    "id": 4,
-    "difficulty": "normal",
-    "question": "豊臣秀吉が全国の田畑を調査し年貢の基準を整えた政策は？",
-    "choices": ["太閤検地", "刀狩", "参勤交代", "楽市楽座"],
-    "answerIndex": 0,
-    "explanation": "太閤検地により石高制が整い、支配の基盤が強化された。",
-    "tags": ["制度", "用語"],
-    "era": "安土桃山"
-  },
-  {
-    "id": 5,
-    "difficulty": "hard",
-    "question": "武田勝頼が織田・徳川連合軍に敗れた1575年の戦いは？",
-    "choices": ["長篠の戦い", "三方ヶ原の戦い", "小田原征伐", "山崎の戦い"],
-    "answerIndex": 0,
-    "explanation": "長篠の戦いは鉄砲運用の象徴として有名だが、詳細は史料の解釈が分かれる点もある。",
-    "tags": ["合戦", "武田"],
-    "era": "戦国後期"
-  },
-  {
-    "id": 6,
-    "difficulty": "hard",
-    "question": "石田三成が挙兵し、徳川家康と天下を争った1600年の戦いは？",
-    "choices": ["関ヶ原の戦い", "大坂の陣", "賤ヶ岳の戦い", "姉川の戦い"],
-    "answerIndex": 0,
-    "explanation": "関ヶ原の戦いで勝利した家康が、のちに江戸幕府を開く流れにつながる。",
-    "tags": ["合戦", "人物"],
-    "era": "戦国末期"
-  },
-  {
-    "id": 7,
-    "difficulty": "mania",
-    "question": "織田政権期の軍役動員や兵站に関して、城下町の機能や道路整備と結びつきが強いとされる政策は？",
-    "choices": ["楽市楽座の推進", "城下の都市化・交通整備", "寺社領の保護強化", "検地の停止"],
-    "answerIndex": 1,
-    "explanation": "軍事・物流を支える都市構造（城下町）や交通路の整備は、戦国後期の支配体制と深く関わる。",
-    "tags": ["制度", "都市"],
-    "era": "安土桃山"
-  },
-  {
-    "id": 8,
-    "difficulty": "mania",
-    "question": "近世初頭における「惣無事令」の趣旨に最も近いものは？",
-    "choices": ["大名同士の私闘を禁じる", "全国の刀を没収する", "年貢率を統一する", "キリスト教を保護する"],
-    "answerIndex": 0,
-    "explanation": "惣無事令は、領国間の勝手な合戦を禁じ、中央権力の裁断に従わせる性格を持つと整理される。",
-    "tags": ["用語", "統治"],
-    "era": "安土桃山"
-  },
-  {
-    "id": 9,
-    "difficulty": "easy",
-    "question": "「刀狩」を行った人物として一般に知られるのは？",
-    "choices": ["豊臣秀吉", "徳川家康", "上杉謙信", "北条氏康"],
-    "answerIndex": 0,
-    "explanation": "刀狩は武装解除による一揆抑止と身分統制の一環として語られる。",
-    "tags": ["制度", "人物"],
-    "era": "安土桃山"
-  },
-  {
-    "id": 10,
-    "difficulty": "normal",
-    "question": "「楽市楽座」の目的として最も近いのは？",
-    "choices": ["市場の自由化と商業振興", "農地の測量", "武士の給与制度統一", "寺社勢力の強化"],
-    "answerIndex": 0,
-    "explanation": "市場の独占や特権を抑え、流通を活性化させる狙いがあったと整理される。",
-    "tags": ["制度", "経済"],
-    "era": "戦国中期"
+// app.js (300問最適化：分割ロード + キャッシュ + 正解追従シャッフル)
+
+const QUESTION_COUNT = 10; // 1回の出題数（必要なら設定画面と連動）
+
+// ---- DOM ----
+const homeSection = document.getElementById("home");
+const quizSection = document.getElementById("quiz");
+const resultSection = document.getElementById("result");
+
+const startBtn = document.getElementById("startBtn");
+const reviewBtn = document.getElementById("reviewBtn");
+
+const progressEl = document.getElementById("progress");
+const modeLabelEl = document.getElementById("modeLabel");
+const questionEl = document.getElementById("question");
+const choicesEl = document.getElementById("choices");
+const feedbackEl = document.getElementById("feedback");
+const nextBtn = document.getElementById("nextBtn");
+
+const scoreEl = document.getElementById("score");
+const rateEl = document.getElementById("rate");
+const wrongCountEl = document.getElementById("wrongCount");
+const backBtn = document.getElementById("backBtn");
+
+const homeMessageEl = document.getElementById("homeMessage");
+
+// ---- Settings (あなたのUI側の難易度選択に合わせてここだけ連動させればOK) ----
+let selectedDifficulty = "normal"; // easy / normal / hard / mania
+let mode = "normal"; // normal / review
+
+// ---- State ----
+let allQuestions = [];
+let sessionQuestions = [];
+let index = 0;
+let score = 0;
+let wrongIds = []; // review用
+let locked = false;
+
+// ---- Util ----
+function $(id) { return document.getElementById(id); }
+
+function show(section) {
+  homeSection.classList.add("hidden");
+  quizSection.classList.add("hidden");
+  resultSection.classList.add("hidden");
+  section.classList.remove("hidden");
+}
+
+function fisherYatesShuffle(arr) {
+  // in-place
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = (Math.random() * (i + 1)) | 0;
+    [arr[i], arr[j]] = [arr[j], arr[i]];
   }
-]
+  return arr;
+}
+
+// choices をシャッフルしつつ、answerIndexを追従させる
+function shuffleChoicesKeepAnswer(q) {
+  const items = q.choices.map((text, i) => ({ text, i }));
+  fisherYatesShuffle(items);
+  const newChoices = items.map(x => x.text);
+  const newAnswerIndex = items.findIndex(x => x.i === q.answerIndex);
+  return { ...q, choices: newChoices, answerIndex: newAnswerIndex };
+}
+
+// ---- Data loading ----
+function fileForDifficulty(d) {
+  // ファイル分割する前提（分割しない場合は questions.json に戻してOK）
+  switch (d) {
+    case "easy": return "questions_easy.json";
+    case "normal": return "questions_normal.json";
+    case "hard": return "questions_hard.json";
+    case "mania": return "questions_mania.json";
+    default: return "questions_normal.json";
+  }
+}
+
+function cacheKey(d) {
+  return `sengoku_questions_${d}_v1`; // v1 を上げれば強制更新
+}
+
+async function loadQuestionsByDifficulty(d) {
+  const key = cacheKey(d);
+  const cached = localStorage.getItem(key);
+  if (cached) {
+    try {
+      return JSON.parse(cached);
+    } catch (_) {
+      localStorage.removeItem(key);
+    }
+  }
+
+  const filename = fileForDifficulty(d);
+  const res = await fetch(filename, { cache: "no-store" });
+  if (!res.ok) throw new Error(`Failed to load ${filename}`);
+  const data = await res.json();
+
+  // 保存（2回目以降爆速）
+  try {
+    localStorage.setItem(key, JSON.stringify(data));
+  } catch (_) {
+    // 容量不足なら無視（動作はする）
+  }
+  return data;
+}
+
+// ---- Session building ----
+function buildSessionQuestions(source, count, isReview) {
+  let pool = source.slice();
+
+  if (isReview) {
+    // 間違えたIDだけ
+    const set = new Set(wrongIds);
+    pool = pool.filter(q => set.has(q.id));
+  }
+
+  fisherYatesShuffle(pool);
+
+  // 必要数だけ取り、choicesもシャッフル（正解追従）
+  return pool
+    .slice(0, Math.min(count, pool.length))
+    .map(shuffleChoicesKeepAnswer);
+}
+
+// ---- Quiz flow ----
+function renderQuestion() {
+  locked = false;
+  feedbackEl.innerHTML = "";
+  nextBtn.classList.add("hidden");
+
+  const q = sessionQuestions[index];
+  progressEl.textContent = `${index + 1} / ${sessionQuestions.length}`;
+  modeLabelEl.textContent = mode === "review" ? "復習" : "通常";
+
+  questionEl.textContent = q.question;
+
+  choicesEl.innerHTML = "";
+  q.choices.forEach((c, i) => {
+    const btn = document.createElement("button");
+    btn.className = "choice"; // CSSで整える
+    btn.type = "button";
+    btn.innerHTML = `<span class="opt">${String.fromCharCode(65 + i)}</span><span class="txt">${escapeHtml(c)}</span>`;
+    btn.addEventListener("click", () => onAnswer(i));
+    choicesEl.appendChild(btn);
+  });
+}
+
+function onAnswer(selectedIndex) {
+  if (locked) return;
+  locked = true;
+
+  const q = sessionQuestions[index];
+  const isCorrect = selectedIndex === q.answerIndex;
+
+  // 表示：正誤 + 解説
+  if (isCorrect) {
+    score++;
+    feedbackEl.innerHTML = `
+      <div class="judge ok">正解</div>
+      <div class="kaisetsu">
+        <div class="kaisetutitle">軍議</div>
+        <div class="kaisetsu-body">${escapeHtml(q.explanation || "解説なし")}</div>
+      </div>
+    `;
+  } else {
+    wrongIds.push(q.id);
+    const correctText = q.choices[q.answerIndex];
+    feedbackEl.innerHTML = `
+      <div class="judge ng">不正解</div>
+      <div class="answerline">正解：${escapeHtml(correctText)}</div>
+      <div class="kaisetsu">
+        <div class="kaisetutitle">軍議</div>
+        <div class="kaisetsu-body">${escapeHtml(q.explanation || "解説なし")}</div>
+      </div>
+    `;
+  }
+
+  nextBtn.classList.remove("hidden");
+}
+
+function finish() {
+  show(resultSection);
+  const total = sessionQuestions.length;
+  const rate = total ? Math.round((score / total) * 100) : 0;
+
+  scoreEl.textContent = `正解数：${score} / ${total}`;
+  rateEl.textContent = `正答率：${rate}%`;
+  wrongCountEl.textContent = `誤答：${wrongIds.length}`;
+
+  // 復習ボタン活性（間違いがある時だけ）
+  reviewBtn.disabled = wrongIds.length === 0;
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+// ---- Start / Review ----
+async function startQuiz(isReview) {
+  try {
+    homeMessageEl.textContent = "読み込み中…";
+
+    allQuestions = await loadQuestionsByDifficulty(selectedDifficulty);
+
+    mode = isReview ? "review" : "normal";
+    score = 0;
+    index = 0;
+
+    sessionQuestions = buildSessionQuestions(allQuestions, QUESTION_COUNT, isReview);
+
+    if (!sessionQuestions.length) {
+      homeMessageEl.textContent = isReview
+        ? "復習する問題がありません（誤答が0件）"
+        : "問題データがありません";
+      return;
+    }
+
+    show(quizSection);
+    renderQuestion();
+  } catch (e) {
+    console.error(e);
+    homeMessageEl.textContent = `読み込み失敗：${e.message}`;
+  }
+}
+
+// ---- Events ----
+startBtn.addEventListener("click", () => startQuiz(false));
+reviewBtn.addEventListener("click", () => startQuiz(true));
+
+nextBtn.addEventListener("click", () => {
+  if (index < sessionQuestions.length - 1) {
+    index++;
+    renderQuestion();
+  } else {
+    finish();
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  show(homeSection);
+  homeMessageEl.textContent = "";
+});
+
+// 初期
+show(homeSection);
+homeMessageEl.textContent = "難易度を選んで開始してください。";
+reviewBtn.disabled = true;
