@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>questions.json 分割ツール</title>
+  <style>
+    body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Noto Sans JP",sans-serif;max-width:900px;margin:24px auto;padding:0 16px;line-height:1.6}
+    textarea{width:100%;height:260px;font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;font-size:12px}
+    button{padding:10px 14px;margin:6px 6px 6px 0;cursor:pointer}
+    .row{display:flex;gap:12px;flex-wrap:wrap;align-items:center}
+    .card{border:1px solid #ddd;border-radius:10px;padding:12px;margin-top:12px}
+    .muted{color:#666}
+    .ok{color:#0a7}
+    .ng{color:#c22}
+    code{background:#f6f6f6;padding:2px 6px;border-radius:6px}
+  </style>
+</head>
+<body>
+  <h1>questions.json 自動分割</h1>
+  <p class="muted">
+    ここに <code>questions.json</code> の中身を丸ごと貼って「分割する」を押すだけ。
+    <br>（difficultyが無くても推定して振り分けます）
+  </p>
+
+  <div class="card">
+    <div class="row">
+      <button id="loadFetch">① リポジトリの questions.json を自動読込（おすすめ）</button>
+      <span class="muted">※ GitHub Pages上で動かすとfetchできます</span>
+    </div>
+    <p class="muted" style="margin:6px 0 0">
+      自動読込できない場合は下に手動で貼り付けてOK。
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>② questions.json を貼り付け（全貼り付け）</h3>
+    <textarea id="input" placeholder='[{"question":"...","choices":["A","B","C","D"],"answerIndex":2,"explanation":"...","tags":["..."],"difficulty":"easy"}]'></textarea>
+
+    <div class="row">
+      <label><input type="checkbox" id="shuffleChoices" checked> 選択肢をシャッフルしても正解が崩れないように整形</label>
+    </div>
+
+    <div class="row">
+      <button id="splitBtn">③ 分割する（4ファイルDL）</button>
+      <button id="addDifficultyBtn">difficulty を付与して整形してDL</button>
+      <span id="status" class="muted"></span>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>出力ファイル</h3>
+    <ul>
+      <li><code>questions_easy.json</code></li>
+      <li><code>questions_normal.json</code></li>
+      <li><code>questions_hard.json</code></li>
+      <li><code>questions_mania.json</code></li>
+      <li class="muted">（必要なら）<code>questions_unknown.json</code></li>
+    </ul>
+    <p class="muted">DLしたファイルをそのままGitHubにアップしてCommitすればOK。</p>
+  </div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+
+  function download(filename, obj){
+    const blob = new Blob([JSON.stringify(obj, null, 2)], {type:"application/json"});
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    a.click();
+    setTimeout(()=>URL.revokeObjectURL(a.href), 2000);
+  }
+
+  function hasAny(arr, words){
+    return Array.isArray(arr) && arr.some(t => words.some(w => String(t).includes(w)));
+  }
+
+  function isLong(s){ return String(s||"").length >= 28; }
+
+  function guessDifficulty(q){
+    const tags = q.tags || [];
+    const era = String(q.era || "");
+    const text = String(q.question || "");
+
+    if (String(q.difficulty||"").trim()) return String(q.difficulty).toLowerCase().trim();
+
+    if (hasAny(tags, ["入門","基礎","基本","初級","やさしい"])) return "easy";
+    if (hasAny(tags, ["マニア","沼","上級","発展"])) return "mania";
+    if (hasAny(tags, ["応用","難問","難しい"])) return "hard";
+
+    const hardEra = ["戦国後期","安土桃山","織豊","近世初頭"];
+    const hardWords = ["朱印状","惣無事令","刀狩","検地","勘合","奉行","直轄","関所","蔵入地","幕藩","惣村","楽市楽座","寺社領","公武"];
+
+    if (hardEra.some(e => era.includes(e)) && (isLong(text) || hardWords.some(w => text.includes(w))))
+      return "hard";
+
+    return "normal";
+  }
+
+  // どの難易度でも「正解がA固定」になりにくいように choices をシャッフルし、answerIndexも追従させる
+  function shuffleChoicesPreserveAnswer(q){
+    if (!Array.isArray(q.choices) || typeof q.answerIndex !== "number") return q;
+
+    const original = q.choices.map((text, idx)=>({text, idx}));
+    // Fisher–Yates
+    for (let i = original.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [original[i], original[j]] = [original[j], original[i]];
+    }
+
+    const newChoices = original.map(x=>x.text);
+    const newAnswerIndex = original.findIndex(x=>x.idx === q.answerIndex);
+
+    return {...q, choices:newChoices, answerIndex:newAnswerIndex};
+  }
+
+  function parseInput(){
+    const txt = $("input").value.trim();
+    if (!txt) throw new Error("入力が空です。questions.jsonの中身を貼ってください。");
+    const data = JSON.parse(txt);
+    if (!Array.isArray(data)) throw new Error("questions.json は配列形式である必要があります（例: [ {...}, {...} ]）。");
+    return data;
+  }
+
+  $("loadFetch").onclick = async () => {
+    $("status").textContent = "読込中...";
+    try{
+      const res = await fetch("./questions.json", {cache:"no-store"});
+      if(!res.ok) throw new Error("fetch失敗: " + res.status);
+      const json = await res.json();
+      $("input").value = JSON.stringify(json, null, 2);
+      $("status").textContent = "OK: questions.json を読込みました";
+      $("status").className = "ok";
+    }catch(e){
+      $("status").textContent = "自動読込できませんでした。手動貼り付けでOK。(" + e.message + ")";
+      $("status").className = "ng";
+    }
+  };
+
+  $("addDifficultyBtn").onclick = () => {
+    try{
+      $("status").textContent = "整形中...";
+      $("status").className = "muted";
+      const data = parseInput();
+      const fixed = data.map(q => ({...q, difficulty: guessDifficulty(q)}));
+      download("questions_with_difficulty.json", fixed);
+      $("status").textContent = "OK: questions_with_difficulty.json をDLしました";
+      $("status").className = "ok";
+    }catch(e){
+      $("status").textContent = "NG: " + e.message;
+      $("status").className = "ng";
+    }
+  };
+
+  $("splitBtn").onclick = () => {
+    try{
+      $("status").textContent = "分割中...";
+      $("status").className = "muted";
+      const data = parseInput();
+      const doShuffle = $("shuffleChoices").checked;
+
+      const buckets = {easy:[], normal:[], hard:[], mania:[], unknown:[]};
+
+      for (let q of data){
+        const d = guessDifficulty(q);
+        let qq = {...q, difficulty:d};
+        if (doShuffle) qq = shuffleChoicesPreserveAnswer(qq);
+        if (buckets[d]) buckets[d].push(qq);
+        else buckets.unknown.push(qq);
+      }
+
+      download("questions_easy.json", buckets.easy);
+      download("questions_normal.json", buckets.normal);
+      download("questions_hard.json", buckets.hard);
+      download("questions_mania.json", buckets.mania);
+      if (buckets.unknown.length) download("questions_unknown.json", buckets.unknown);
+
+      $("status").textContent =
+        `OK: easy=${buckets.easy.length}, normal=${buckets.normal.length}, hard=${buckets.hard.length}, mania=${buckets.mania.length}` +
+        (buckets.unknown.length ? `, unknown=${buckets.unknown.length}` : "");
+      $("status").className = "ok";
+    }catch(e){
+      $("status").textContent = "NG: " + e.message;
+      $("status").className = "ng";
+    }
+  };
+</script>
+</body>
+</html>
