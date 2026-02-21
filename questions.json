@@ -399,4 +399,609 @@
     "era": "戦国後期",
     "tags": ["城", "真田家"]
   }
+,
+{
+  "id": 41,
+  "question": "今川義元が本拠としていた国は？",
+  "choices": ["駿河", "尾張", "越後", "相模"],
+  "answerIndex": 0,
+  "explanation": "今川氏は駿河を本拠とした。",
+  "difficulty": "easy",
+  "era": "戦国中期",
+  "tags": ["今川家"]
+},
+{
+  "id": 42,
+  "question": "三方ヶ原の戦いで徳川家康と戦ったのは？",
+  "choices": ["武田信玄", "上杉謙信", "北条氏政", "浅井長政"],
+  "answerIndex": 0,
+  "explanation": "三方ヶ原の戦いでは武田信玄が家康を破った。",
+  "difficulty": "normal",
+  "era": "戦国後期",
+  "tags": ["合戦"]
+},
+{
+  "id": 43,
+  "question": "直江兼続が仕えた大名は？",
+  "choices": ["上杉景勝", "武田勝頼", "毛利輝元", "島津義久"],
+  "answerIndex": 0,
+  "explanation": "直江兼続は上杉景勝の重臣。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["上杉家"]
+},
+{
+  "id": 44,
+  "question": "毛利元就の有名な教えとして知られるのは？",
+  "choices": ["三本の矢", "五箇条の御誓文", "天下布武", "刀狩令"],
+  "answerIndex": 0,
+  "explanation": "三本の矢の逸話が有名。",
+  "difficulty": "easy",
+  "era": "戦国中期",
+  "tags": ["毛利家"]
+},
+{
+  "id": 45,
+  "question": "浅井長政の妻で織田信長の妹は？",
+  "choices": ["お市の方", "淀殿", "ねね", "細川ガラシャ"],
+  "answerIndex": 0,
+  "explanation": "浅井長政の妻はお市の方。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["人物"]
+},
+{
+  "id": 46,
+  "question": "島原の乱が起きた時代は？",
+  "choices": ["江戸初期", "戦国中期", "室町初期", "鎌倉末期"],
+  "answerIndex": 0,
+  "explanation": "島原の乱は江戸初期に発生。",
+  "difficulty": "normal",
+  "era": "江戸初期",
+  "tags": ["一揆"]
+},
+{
+  "id": 47,
+  "question": "小早川秀秋が関ヶ原で行った行動は？",
+  "choices": ["寝返り", "討死", "援軍拒否", "城攻め"],
+  "answerIndex": 0,
+  "explanation": "関ヶ原で東軍に寝返ったとされる。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["関ヶ原"]
+},
+{
+  "id": 48,
+  "question": "武田信玄の死後に家督を継いだのは？",
+  "choices": ["武田勝頼", "武田信虎", "山県昌景", "穴山梅雪"],
+  "answerIndex": 0,
+  "explanation": "信玄の後継は勝頼。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["武田家"]
+},
+{
+  "id": 49,
+  "question": "豊臣秀吉の正室は？",
+  "choices": ["ねね", "淀殿", "お市の方", "細川ガラシャ"],
+  "answerIndex": 0,
+  "explanation": "ねね（北政所）。",
+  "difficulty": "easy",
+  "era": "安土桃山",
+  "tags": ["豊臣秀吉"]
+},
+{
+  "id": 50,
+  "question": "伊達政宗の本拠地は現在のどこ？",
+  "choices": ["仙台", "金沢", "鹿児島", "高松"],
+  "answerIndex": 0,
+  "explanation": "伊達政宗は仙台藩の祖。",
+  "difficulty": "easy",
+  "era": "安土桃山",
+  "tags": ["伊達家"]
+}
+,
+{
+  "id": 51,
+  "question": "徳川四天王に含まれない人物は？",
+  "choices": ["本多忠勝", "井伊直政", "榊原康政", "石田三成"],
+  "answerIndex": 3,
+  "explanation": "石田三成は徳川四天王ではない。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["徳川家"]
+},
+{
+  "id": 52,
+  "question": "織田信長が最初に本拠とした城は？",
+  "choices": ["清洲城", "安土城", "岐阜城", "小牧山城"],
+  "answerIndex": 0,
+  "explanation": "信長は尾張の清洲城を拠点とした。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["織田家","城"]
+},
+{
+  "id": 53,
+  "question": "「人は城、人は石垣、人は堀」という言葉で知られるのは？",
+  "choices": ["武田信玄", "上杉謙信", "毛利元就", "黒田官兵衛"],
+  "answerIndex": 0,
+  "explanation": "武田信玄の名言として有名。",
+  "difficulty": "easy",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 54,
+  "question": "関ヶ原の戦いで東軍総大将は？",
+  "choices": ["徳川家康", "福島正則", "黒田長政", "細川忠興"],
+  "answerIndex": 0,
+  "explanation": "東軍の中心は徳川家康。",
+  "difficulty": "easy",
+  "era": "安土桃山",
+  "tags": ["関ヶ原"]
+},
+{
+  "id": 55,
+  "question": "豊臣秀吉が城主として築いた城で有名なのは？",
+  "choices": ["大坂城", "姫路城", "名古屋城", "江戸城"],
+  "answerIndex": 0,
+  "explanation": "秀吉は大坂城を築いた。",
+  "difficulty": "easy",
+  "era": "安土桃山",
+  "tags": ["城"]
+},
+{
+  "id": 56,
+  "question": "武田信玄のライバルとして有名なのは？",
+  "choices": ["上杉謙信", "北条氏康", "今川義元", "織田信忠"],
+  "answerIndex": 0,
+  "explanation": "川中島で戦った上杉謙信。",
+  "difficulty": "easy",
+  "era": "戦国中期",
+  "tags": ["合戦"]
+},
+{
+  "id": 57,
+  "question": "黒田官兵衛の別名は？",
+  "choices": ["如水", "太閤", "鬼武蔵", "軍神"],
+  "answerIndex": 0,
+  "explanation": "黒田官兵衛は如水と号した。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["人物"]
+},
+{
+  "id": 58,
+  "question": "毛利氏が本拠とした城は？",
+  "choices": ["吉田郡山城", "小田原城", "熊本城", "会津若松城"],
+  "answerIndex": 0,
+  "explanation": "毛利元就の居城は吉田郡山城。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["毛利家"]
+},
+{
+  "id": 59,
+  "question": "北条氏が滅亡した戦いは？",
+  "choices": ["小田原征伐", "賤ヶ岳の戦い", "山崎の戦い", "姉川の戦い"],
+  "answerIndex": 0,
+  "explanation": "豊臣秀吉の小田原征伐で滅亡。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["北条家"]
+},
+{
+  "id": 60,
+  "question": "徳川家康が幼少期に人質として送られたのは？",
+  "choices": ["今川家", "武田家", "上杉家", "毛利家"],
+  "answerIndex": 0,
+  "explanation": "家康は今川家に人質として送られた。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 61,
+  "question": "真田幸村が活躍した戦いは？",
+  "choices": ["大阪の陣", "桶狭間の戦い", "川中島の戦い", "関ヶ原の戦い"],
+  "answerIndex": 0,
+  "explanation": "真田幸村は大阪の陣で活躍。",
+  "difficulty": "easy",
+  "era": "江戸初期",
+  "tags": ["真田家"]
+},
+{
+  "id": 62,
+  "question": "前田利家が仕えた主君は？",
+  "choices": ["織田信長", "徳川家康", "武田信玄", "上杉謙信"],
+  "answerIndex": 0,
+  "explanation": "前田利家は信長の家臣。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["人物"]
+},
+{
+  "id": 63,
+  "question": "島津義弘が奮戦した戦いは？",
+  "choices": ["関ヶ原の戦い", "姉川の戦い", "三方ヶ原の戦い", "長篠の戦い"],
+  "answerIndex": 0,
+  "explanation": "関ヶ原で島津の退き口が有名。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["島津家"]
+},
+{
+  "id": 64,
+  "question": "織田信長が使用した有名な城は？",
+  "choices": ["岐阜城", "熊本城", "会津若松城", "松本城"],
+  "answerIndex": 0,
+  "explanation": "信長は稲葉山城を岐阜城と改名。",
+  "difficulty": "normal",
+  "era": "戦国後期",
+  "tags": ["城"]
+},
+{
+  "id": 65,
+  "question": "徳川家康の幼名は？",
+  "choices": ["竹千代", "弥七郎", "三郎", "五郎八"],
+  "answerIndex": 0,
+  "explanation": "家康の幼名は竹千代。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 66,
+  "question": "織田信忠は誰の子？",
+  "choices": ["織田信長", "徳川家康", "豊臣秀吉", "明智光秀"],
+  "answerIndex": 0,
+  "explanation": "信忠は信長の嫡男。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+},
+{
+  "id": 67,
+  "question": "伊達政宗が建てた城は？",
+  "choices": ["仙台城", "安土城", "小田原城", "彦根城"],
+  "answerIndex": 0,
+  "explanation": "仙台城は伊達政宗の城。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["伊達家"]
+},
+{
+  "id": 68,
+  "question": "浅井氏が滅亡した戦いは？",
+  "choices": ["姉川の戦い", "長篠の戦い", "三方ヶ原の戦い", "桶狭間の戦い"],
+  "answerIndex": 0,
+  "explanation": "姉川の戦い後、浅井氏は滅亡へ。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["浅井家"]
+},
+{
+  "id": 69,
+  "question": "武田信玄の父は？",
+  "choices": ["武田信虎", "武田勝頼", "武田晴信", "武田信繁"],
+  "answerIndex": 0,
+  "explanation": "信玄の父は武田信虎。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 70,
+  "question": "徳川家康の本拠地は？",
+  "choices": ["江戸", "安土", "大坂", "小田原"],
+  "answerIndex": 0,
+  "explanation": "家康は江戸を本拠とした。",
+  "difficulty": "easy",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+}  
+,
+{
+  "id": 71,
+  "question": "武田信玄の本名は？",
+  "choices": ["武田晴信", "武田信虎", "武田勝頼", "武田信繁"],
+  "answerIndex": 0,
+  "explanation": "信玄の本名は武田晴信。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家","改名"]
+},
+{
+  "id": 72,
+  "question": "上杉謙信の幼名は？",
+  "choices": ["虎千代", "竹千代", "弥七郎", "彦五郎"],
+  "answerIndex": 0,
+  "explanation": "上杉謙信の幼名は虎千代。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["上杉家"]
+},
+{
+  "id": 73,
+  "question": "織田信長が楽市楽座を初めて実施した地は？",
+  "choices": ["近江・安土", "美濃・岐阜", "尾張・清洲", "伊勢・長島"],
+  "answerIndex": 1,
+  "explanation": "信長は岐阜で楽市令を出したとされる。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["政策"]
+},
+{
+  "id": 74,
+  "question": "「甲州法度次第」を制定した大名は？",
+  "choices": ["武田信玄", "上杉謙信", "今川義元", "北条氏康"],
+  "answerIndex": 0,
+  "explanation": "武田信玄が制定した分国法。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["法令"]
+},
+{
+  "id": 75,
+  "question": "真田昌幸が活躍した戦いは？",
+  "choices": ["第一次上田合戦", "桶狭間の戦い", "姉川の戦い", "賤ヶ岳の戦い"],
+  "answerIndex": 0,
+  "explanation": "上田合戦で徳川軍を撃退。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["真田家"]
+},
+{
+  "id": 76,
+  "question": "毛利元就の三男で後に中国地方を支配したのは？",
+  "choices": ["小早川隆景", "吉川元春", "毛利輝元", "毛利隆元"],
+  "answerIndex": 2,
+  "explanation": "毛利輝元が後継となった。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["毛利家"]
+},
+{
+  "id": 77,
+  "question": "直江兼続の有名な兜の前立ては？",
+  "choices": ["愛", "義", "龍", "毘"],
+  "answerIndex": 0,
+  "explanation": "「愛」の前立てで有名。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["上杉家"]
+},
+{
+  "id": 78,
+  "question": "島津家の家訓として有名なのは？",
+  "choices": ["いろは歌", "三本の矢", "五箇条の御誓文", "御成敗式目"],
+  "answerIndex": 0,
+  "explanation": "島津家は「いろは歌」を家訓とした。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["島津家"]
+},
+{
+  "id": 79,
+  "question": "徳川家康が最初に与えられた国は？",
+  "choices": ["三河", "遠江", "駿河", "甲斐"],
+  "answerIndex": 0,
+  "explanation": "家康は三河を本拠とした。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 80,
+  "question": "黒田官兵衛が幽閉された城は？",
+  "choices": ["有岡城", "安土城", "小田原城", "松山城"],
+  "answerIndex": 0,
+  "explanation": "荒木村重により有岡城で幽閉された。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["黒田家"]
+},
+{
+  "id": 81,
+  "question": "織田信長の家臣で「鬼武蔵」と呼ばれたのは？",
+  "choices": ["森長可", "柴田勝家", "丹羽長秀", "佐久間信盛"],
+  "answerIndex": 0,
+  "explanation": "森長可は鬼武蔵と呼ばれた。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+},
+{
+  "id": 82,
+  "question": "徳川家光の乳母として有名なのは？",
+  "choices": ["春日局", "淀殿", "ねね", "お市の方"],
+  "answerIndex": 0,
+  "explanation": "春日局は家光の乳母。",
+  "difficulty": "hard",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 83,
+  "question": "武田信玄の軍師として知られるのは？",
+  "choices": ["山本勘助", "竹中半兵衛", "黒田官兵衛", "直江兼続"],
+  "answerIndex": 0,
+  "explanation": "山本勘助は武田の軍師として有名。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 84,
+  "question": "織田信長の父は？",
+  "choices": ["織田信秀", "織田信忠", "織田信雄", "織田信行"],
+  "answerIndex": 0,
+  "explanation": "信長の父は織田信秀。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["織田家"]
+},
+{
+  "id": 85,
+  "question": "関ヶ原の戦いで東軍に寝返った武将は？",
+  "choices": ["小早川秀秋", "石田三成", "島左近", "宇喜多秀家"],
+  "answerIndex": 0,
+  "explanation": "小早川秀秋が寝返った。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["関ヶ原"]
+},
+{
+  "id": 86,
+  "question": "豊臣秀吉の出身身分として一般的に知られるのは？",
+  "choices": ["農民", "公家", "大名", "僧侶"],
+  "answerIndex": 0,
+  "explanation": "農民出身とされる。",
+  "difficulty": "easy",
+  "era": "安土桃山",
+  "tags": ["豊臣秀吉"]
+},
+{
+  "id": 87,
+  "question": "武田信玄が病没した場所は？",
+  "choices": ["三方ヶ原付近", "川中島", "小田原", "駿府"],
+  "answerIndex": 0,
+  "explanation": "三方ヶ原出陣中に病没。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["武田家"]
+},
+{
+  "id": 88,
+  "question": "上杉景勝の重臣で直江状を書いたとされる人物は？",
+  "choices": ["直江兼続", "柿崎景家", "本庄繁長", "甘粕景持"],
+  "answerIndex": 0,
+  "explanation": "直江状は直江兼続の名で知られる。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["上杉家"]
+},
+{
+  "id": 89,
+  "question": "徳川家康の正室は？",
+  "choices": ["築山殿", "淀殿", "春日局", "ねね"],
+  "answerIndex": 0,
+  "explanation": "家康の正室は築山殿。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 90,
+  "question": "織田信長が討たれた寺の名前は？",
+  "choices": ["本能寺", "延暦寺", "東大寺", "金閣寺"],
+  "answerIndex": 0,
+  "explanation": "1582年本能寺の変。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["事件"]
+},
+{
+  "id": 91,
+  "question": "豊臣秀吉が関白になる前に任じられた官職は？",
+  "choices": ["内大臣", "征夷大将軍", "摂政", "太政大臣"],
+  "answerIndex": 0,
+  "explanation": "秀吉は内大臣に任じられた。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["官職"]
+},
+{
+  "id": 92,
+  "question": "徳川家康の死後、霊廟が建てられた場所は？",
+  "choices": ["日光", "京都", "大坂", "名古屋"],
+  "answerIndex": 0,
+  "explanation": "日光東照宮。",
+  "difficulty": "normal",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 93,
+  "question": "武田勝頼が敗れた戦いは？",
+  "choices": ["長篠の戦い", "川中島の戦い", "三方ヶ原の戦い", "桶狭間の戦い"],
+  "answerIndex": 0,
+  "explanation": "長篠で敗北。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["武田家"]
+},
+{
+  "id": 94,
+  "question": "織田信長の妹で浅井長政の妻は？",
+  "choices": ["お市の方", "淀殿", "ねね", "春日局"],
+  "answerIndex": 0,
+  "explanation": "お市の方。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["人物"]
+},
+{
+  "id": 95,
+  "question": "真田幸村の本名は？",
+  "choices": ["真田信繁", "真田昌幸", "真田信幸", "真田昌輝"],
+  "answerIndex": 0,
+  "explanation": "幸村は後世の呼び名。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["真田家"]
+},
+{
+  "id": 96,
+  "question": "徳川家康の祖先とされる家は？",
+  "choices": ["松平家", "足利家", "源氏", "平氏"],
+  "answerIndex": 0,
+  "explanation": "家康は松平家出身。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 97,
+  "question": "織田信長の家臣で丹羽長秀の通称は？",
+  "choices": ["米五郎左", "鬼武蔵", "槍の又左", "軍神"],
+  "answerIndex": 0,
+  "explanation": "丹羽長秀は米五郎左。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+},
+{
+  "id": 98,
+  "question": "豊臣秀吉の側近で五奉行の一人は？",
+  "choices": ["石田三成", "井伊直政", "榊原康政", "本多忠勝"],
+  "answerIndex": 0,
+  "explanation": "石田三成は五奉行。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["豊臣政権"]
+},
+{
+  "id": 99,
+  "question": "武田信玄が信濃攻略で戦った大名は？",
+  "choices": ["村上義清", "毛利元就", "島津義弘", "浅井長政"],
+  "answerIndex": 0,
+  "explanation": "村上義清と戦った。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 100,
+  "question": "徳川家康が死去した年は？",
+  "choices": ["1616年", "1603年", "1615年", "1623年"],
+  "answerIndex": 0,
+  "explanation": "家康は1616年死去。",
+  "difficulty": "normal",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+}
 ]
+
+
