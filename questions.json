@@ -1,253 +1,402 @@
-// app.js (300問最適化：分割ロード + キャッシュ + 正解追従シャッフル)
-
-const QUESTION_COUNT = 10; // 1回の出題数（必要なら設定画面と連動）
-
-// ---- DOM ----
-const homeSection = document.getElementById("home");
-const quizSection = document.getElementById("quiz");
-const resultSection = document.getElementById("result");
-
-const startBtn = document.getElementById("startBtn");
-const reviewBtn = document.getElementById("reviewBtn");
-
-const progressEl = document.getElementById("progress");
-const modeLabelEl = document.getElementById("modeLabel");
-const questionEl = document.getElementById("question");
-const choicesEl = document.getElementById("choices");
-const feedbackEl = document.getElementById("feedback");
-const nextBtn = document.getElementById("nextBtn");
-
-const scoreEl = document.getElementById("score");
-const rateEl = document.getElementById("rate");
-const wrongCountEl = document.getElementById("wrongCount");
-const backBtn = document.getElementById("backBtn");
-
-const homeMessageEl = document.getElementById("homeMessage");
-
-// ---- Settings (あなたのUI側の難易度選択に合わせてここだけ連動させればOK) ----
-let selectedDifficulty = "normal"; // easy / normal / hard / mania
-let mode = "normal"; // normal / review
-
-// ---- State ----
-let allQuestions = [];
-let sessionQuestions = [];
-let index = 0;
-let score = 0;
-let wrongIds = []; // review用
-let locked = false;
-
-// ---- Util ----
-function $(id) { return document.getElementById(id); }
-
-function show(section) {
-  homeSection.classList.add("hidden");
-  quizSection.classList.add("hidden");
-  resultSection.classList.add("hidden");
-  section.classList.remove("hidden");
-}
-
-function fisherYatesShuffle(arr) {
-  // in-place
-  for (let i = arr.length - 1; i > 0; i--) {
-    const j = (Math.random() * (i + 1)) | 0;
-    [arr[i], arr[j]] = [arr[j], arr[i]];
+[
+  {
+    "id": 1,
+    "question": "戦国時代の始まりの目安としてよく挙げられる出来事は？",
+    "choices": ["応仁の乱", "大化の改新", "承久の乱", "鎌倉幕府の成立"],
+    "answerIndex": 0,
+    "explanation": "一般に応仁の乱（1467年）を戦国時代の始まりの目安とすることが多い。",
+    "difficulty": "easy",
+    "era": "戦国前期",
+    "tags": ["時代区分", "内乱"]
+  },
+  {
+    "id": 2,
+    "question": "織田信長が討たれた「本能寺の変」の年は？",
+    "choices": ["1560年", "1575年", "1582年", "1600年"],
+    "answerIndex": 2,
+    "explanation": "本能寺の変は1582年。明智光秀が信長を討った。",
+    "difficulty": "easy",
+    "era": "戦国後期",
+    "tags": ["織田家", "事件"]
+  },
+  {
+    "id": 3,
+    "question": "徳川家康が天下分け目の戦いで勝利した合戦は？",
+    "choices": ["長篠の戦い", "関ヶ原の戦い", "桶狭間の戦い", "川中島の戦い"],
+    "answerIndex": 1,
+    "explanation": "1600年の関ヶ原の戦いで家康側（東軍）が勝利し、天下掌握へ進んだ。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["徳川家", "合戦"]
+  },
+  {
+    "id": 4,
+    "question": "「三英傑」に含まれない人物は？",
+    "choices": ["織田信長", "豊臣秀吉", "徳川家康", "武田信玄"],
+    "answerIndex": 3,
+    "explanation": "三英傑は信長・秀吉・家康。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["人物", "基礎"]
+  },
+  {
+    "id": 5,
+    "question": "長篠の戦い（1575年）で織田・徳川連合と戦ったのは？",
+    "choices": ["武田勝頼", "上杉謙信", "毛利輝元", "北条氏政"],
+    "answerIndex": 0,
+    "explanation": "長篠の戦いは武田勝頼と織田・徳川連合の戦い。",
+    "difficulty": "normal",
+    "era": "戦国後期",
+    "tags": ["合戦", "武田家"]
+  },
+  {
+    "id": 6,
+    "question": "豊臣秀吉が全国統一を進める上で重要だった「刀狩令」の目的に最も近いものは？",
+    "choices": ["武士の軍役を廃止する", "農民の武装を禁じ一揆を防ぐ", "鉄砲の輸入を禁止する", "寺社領を保護する"],
+    "answerIndex": 1,
+    "explanation": "刀狩は農民などから武器を取り上げ、反乱や一揆の抑制を狙った政策。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["制度", "豊臣政権"]
+  },
+  {
+    "id": 7,
+    "question": "織田信長が比叡山延暦寺を焼き討ちしたとされる年は？",
+    "choices": ["1565年", "1571年", "1582年", "1592年"],
+    "answerIndex": 1,
+    "explanation": "比叡山焼き討ちは1571年とされる。",
+    "difficulty": "normal",
+    "era": "戦国後期",
+    "tags": ["宗教", "織田家"]
+  },
+  {
+    "id": 8,
+    "question": "武田信玄と上杉謙信が争った合戦として有名なのは？",
+    "choices": ["川中島の戦い", "姉川の戦い", "石山合戦", "九州征伐"],
+    "answerIndex": 0,
+    "explanation": "川中島の戦いは複数回行われ、信玄と謙信の対決として有名。",
+    "difficulty": "easy",
+    "era": "戦国中期",
+    "tags": ["合戦", "甲越"]
+  },
+  {
+    "id": 9,
+    "question": "「天下布武」を印に用いた人物は？",
+    "choices": ["豊臣秀吉", "徳川家康", "織田信長", "明智光秀"],
+    "answerIndex": 2,
+    "explanation": "織田信長が「天下布武」を掲げた。",
+    "difficulty": "easy",
+    "era": "戦国後期",
+    "tags": ["織田家", "スローガン"]
+  },
+  {
+    "id": 10,
+    "question": "室町幕府の将軍家である足利氏の本拠として知られるのは？",
+    "choices": ["鎌倉", "京都", "江戸", "大坂"],
+    "answerIndex": 1,
+    "explanation": "室町幕府は京都を中心に政治を行った。",
+    "difficulty": "easy",
+    "era": "室町",
+    "tags": ["幕府", "京都"]
+  },
+  {
+    "id": 11,
+    "question": "豊臣秀吉が朝鮮へ出兵した戦争の総称は？",
+    "choices": ["応仁の乱", "元寇", "文禄・慶長の役", "島原の乱"],
+    "answerIndex": 2,
+    "explanation": "1592年開始の文禄の役、1597年開始の慶長の役を合わせて文禄・慶長の役という。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["対外戦争", "豊臣政権"]
+  },
+  {
+    "id": 12,
+    "question": "石山本願寺と織田信長の長期戦として知られるのは？",
+    "choices": ["石山合戦", "大阪冬の陣", "三方ヶ原の戦い", "山崎の戦い"],
+    "answerIndex": 0,
+    "explanation": "石山本願寺との抗争は石山合戦として知られる。",
+    "difficulty": "normal",
+    "era": "戦国後期",
+    "tags": ["宗教", "織田家"]
+  },
+  {
+    "id": 13,
+    "question": "織田信長の後継をめぐって柴田勝家と羽柴秀吉が争った合戦は？",
+    "choices": ["賤ヶ岳の戦い", "小牧・長久手の戦い", "山崎の戦い", "関ヶ原の戦い"],
+    "answerIndex": 0,
+    "explanation": "賤ヶ岳の戦いで秀吉が勝利し、主導権を強めた。",
+    "difficulty": "hard",
+    "era": "安土桃山",
+    "tags": ["合戦", "織田家"]
+  },
+  {
+    "id": 14,
+    "question": "明智光秀を山崎の戦いで破った人物は？",
+    "choices": ["徳川家康", "羽柴秀吉", "前田利家", "北条氏政"],
+    "answerIndex": 1,
+    "explanation": "本能寺の変後、秀吉が山崎の戦いで光秀を破った。",
+    "difficulty": "easy",
+    "era": "戦国後期",
+    "tags": ["合戦", "豊臣秀吉"]
+  },
+  {
+    "id": 15,
+    "question": "徳川家康が征夷大将軍に任じられ江戸幕府を開いた年は？",
+    "choices": ["1590年", "1600年", "1603年", "1615年"],
+    "answerIndex": 2,
+    "explanation": "1603年、家康が征夷大将軍となり江戸幕府を開いた。",
+    "difficulty": "normal",
+    "era": "江戸初期",
+    "tags": ["徳川家", "幕府"]
+  },
+  {
+    "id": 16,
+    "question": "「楽市・楽座」に最も近い説明は？",
+    "choices": ["年貢を免除する制度", "関所を増やして流通を管理する政策", "商業の規制を緩和し市場を活性化する政策", "寺社の勢力を保護する政策"],
+    "answerIndex": 2,
+    "explanation": "楽市・楽座は座の特権を抑え、自由な商取引を促す政策として知られる。",
+    "difficulty": "normal",
+    "era": "戦国後期",
+    "tags": ["経済", "政策"]
+  },
+  {
+    "id": 17,
+    "question": "武田信玄の有名な旗印「風林火山」の出典として知られるのは？",
+    "choices": ["論語", "孫子", "史記", "日本書紀"],
+    "answerIndex": 1,
+    "explanation": "「風林火山」は孫子の軍争篇に由来するとされる。",
+    "difficulty": "hard",
+    "era": "戦国中期",
+    "tags": ["軍学", "武田家"]
+  },
+  {
+    "id": 18,
+    "question": "上杉謙信が「毘沙門天」を信仰したとされる理由に近いのは？",
+    "choices": ["商業守護の神だから", "武神としての性格を重視したから", "農耕神として祀ったから", "航海安全の神だから"],
+    "answerIndex": 1,
+    "explanation": "毘沙門天は武神としても信仰され、謙信の信仰として有名。",
+    "difficulty": "hard",
+    "era": "戦国中期",
+    "tags": ["信仰", "上杉家"]
+  },
+  {
+    "id": 19,
+    "question": "織田信長が築いたとされる、豪壮な城郭として有名なのは？",
+    "choices": ["安土城", "姫路城", "熊本城", "松本城"],
+    "answerIndex": 0,
+    "explanation": "安土城は織田信長の象徴的な城として知られる。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["城", "織田家"]
+  },
+  {
+    "id": 20,
+    "question": "豊臣秀吉の「太閤検地」の主目的として最も近いのは？",
+    "choices": ["武士の婚姻制限", "土地と年貢負担の把握・統一", "外国貿易の独占", "寺社勢力の保護"],
+    "answerIndex": 1,
+    "explanation": "検地で土地を把握し、年貢体系を整えることで支配を強化した。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["制度", "豊臣政権"]
+  },
+  {
+    "id": 21,
+    "question": "「小牧・長久手の戦い」で主に対立したのは？",
+    "choices": ["豊臣秀吉と徳川家康", "織田信長と今川義元", "武田信玄と上杉謙信", "毛利輝元と島津義久"],
+    "answerIndex": 0,
+    "explanation": "小牧・長久手の戦いは秀吉と家康が争った合戦として有名。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["合戦", "徳川家", "豊臣秀吉"]
+  },
+  {
+    "id": 22,
+    "question": "「関ヶ原の戦い」で西軍の中心人物としてよく挙げられるのは？",
+    "choices": ["石田三成", "井伊直政", "福島正則", "本多忠勝"],
+    "answerIndex": 0,
+    "explanation": "西軍の中心人物として石田三成が挙げられる。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["関ヶ原", "人物"]
+  },
+  {
+    "id": 23,
+    "question": "豊臣秀吉の後継として、幼少で関ヶ原前に中心に据えられた人物は？",
+    "choices": ["豊臣秀頼", "豊臣秀長", "織田信忠", "徳川秀忠"],
+    "answerIndex": 0,
+    "explanation": "秀吉の子・豊臣秀頼が後継とされた。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["豊臣政権", "人物"]
+  },
+  {
+    "id": 24,
+    "question": "「大阪の陣」（冬・夏の陣）で滅亡した政権は？",
+    "choices": ["足利政権", "豊臣政権", "北条政権", "織田政権"],
+    "answerIndex": 1,
+    "explanation": "1614～1615年の大阪の陣で豊臣氏が滅亡した。",
+    "difficulty": "easy",
+    "era": "江戸初期",
+    "tags": ["合戦", "豊臣家"]
+  },
+  {
+    "id": 25,
+    "question": "鉄砲伝来（種子島への伝来）の年としてよく知られるのは？",
+    "choices": ["1488年", "1543年", "1568年", "1582年"],
+    "answerIndex": 1,
+    "explanation": "1543年に種子島へ鉄砲が伝来したとされる。",
+    "difficulty": "normal",
+    "era": "戦国中期",
+    "tags": ["鉄砲", "文化"]
+  },
+  {
+    "id": 26,
+    "question": "ポルトガル人などの来航に関連して広まった交易は？",
+    "choices": ["朱印船貿易", "南蛮貿易", "勘合貿易", "日宋貿易"],
+    "answerIndex": 1,
+    "explanation": "戦国期のヨーロッパ勢力との交易は南蛮貿易と呼ばれる。",
+    "difficulty": "normal",
+    "era": "戦国中期",
+    "tags": ["貿易", "南蛮"]
+  },
+  {
+    "id": 27,
+    "question": "織田信長が入京して室町幕府の将軍に据えた人物は？",
+    "choices": ["足利義昭", "足利尊氏", "足利義満", "足利義教"],
+    "answerIndex": 0,
+    "explanation": "信長は足利義昭を奉じて入京し、後に対立する。",
+    "difficulty": "hard",
+    "era": "戦国後期",
+    "tags": ["室町幕府", "織田家"]
+  },
+  {
+    "id": 28,
+    "question": "北条氏（後北条氏）の本拠として有名な城は？",
+    "choices": ["小田原城", "会津若松城", "岡山城", "岐阜城"],
+    "answerIndex": 0,
+    "explanation": "後北条氏の本拠は相模の小田原城。",
+    "difficulty": "easy",
+    "era": "戦国後期",
+    "tags": ["北条家", "城"]
+  },
+  {
+    "id": 29,
+    "question": "豊臣秀吉が「関白」に就任した年として知られるのは？",
+    "choices": ["1585年", "1590年", "1600年", "1603年"],
+    "answerIndex": 0,
+    "explanation": "秀吉は1585年に関白となり政権基盤を固めた。",
+    "difficulty": "hard",
+    "era": "安土桃山",
+    "tags": ["豊臣政権", "官職"]
+  },
+  {
+    "id": 30,
+    "question": "島津氏が勢力を伸ばした地域として最も近いのは？",
+    "choices": ["東北", "関東", "九州南部", "北陸"],
+    "answerIndex": 2,
+    "explanation": "島津氏は薩摩など九州南部を基盤に勢力を拡大した。",
+    "difficulty": "easy",
+    "era": "戦国後期",
+    "tags": ["島津家", "地域"]
+  },
+  {
+    "id": 31,
+    "question": "伊達政宗の通称としてよく知られるのは？",
+    "choices": ["独眼竜", "鬼若子", "軍神", "太閤"],
+    "answerIndex": 0,
+    "explanation": "伊達政宗は「独眼竜」と呼ばれることが多い。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["伊達家", "人物"]
+  },
+  {
+    "id": 32,
+    "question": "「天下分け目」と呼ばれる関ヶ原の戦いの年は？",
+    "choices": ["1598年", "1600年", "1603年", "1615年"],
+    "answerIndex": 1,
+    "explanation": "関ヶ原の戦いは1600年。",
+    "difficulty": "easy",
+    "era": "安土桃山",
+    "tags": ["関ヶ原", "年号"]
+  },
+  {
+    "id": 33,
+    "question": "「武田二十四将」の一人として名が挙がることが多いのは？",
+    "choices": ["山県昌景", "石田三成", "黒田官兵衛", "前田利家"],
+    "answerIndex": 0,
+    "explanation": "山県昌景は武田家の重臣として知られる。",
+    "difficulty": "mania",
+    "era": "戦国中期",
+    "tags": ["武田家", "家臣団"]
+  },
+  {
+    "id": 34,
+    "question": "「五大老」に含まれない人物は？",
+    "choices": ["徳川家康", "前田利家", "宇喜多秀家", "明智光秀"],
+    "answerIndex": 3,
+    "explanation": "五大老に明智光秀は含まれない。",
+    "difficulty": "hard",
+    "era": "安土桃山",
+    "tags": ["豊臣政権", "制度"]
+  },
+  {
+    "id": 35,
+    "question": "徳川家康が将軍職を譲った後に将軍となったのは？",
+    "choices": ["徳川家光", "徳川秀忠", "徳川綱吉", "徳川家綱"],
+    "answerIndex": 1,
+    "explanation": "家康は1605年に秀忠へ将軍職を譲った。",
+    "difficulty": "hard",
+    "era": "江戸初期",
+    "tags": ["徳川家", "将軍"]
+  },
+  {
+    "id": 36,
+    "question": "織田信長が今川義元を破った合戦は？",
+    "choices": ["桶狭間の戦い", "姉川の戦い", "山崎の戦い", "賤ヶ岳の戦い"],
+    "answerIndex": 0,
+    "explanation": "1560年の桶狭間の戦いで信長が今川義元を破った。",
+    "difficulty": "easy",
+    "era": "戦国中期",
+    "tags": ["合戦", "織田家"]
+  },
+  {
+    "id": 37,
+    "question": "「信長包囲網」に関係しない勢力として最も近いのは？",
+    "choices": ["浅井・朝倉", "武田", "本願寺", "島津"],
+    "answerIndex": 3,
+    "explanation": "信長包囲網は近畿～中部中心の対信長勢力で、島津は直接関係が薄い。",
+    "difficulty": "hard",
+    "era": "戦国後期",
+    "tags": ["政治", "織田家"]
+  },
+  {
+    "id": 38,
+    "question": "豊臣秀吉の軍師として名高い人物は？",
+    "choices": ["竹中半兵衛", "真田幸村", "直江兼続", "小早川秀秋"],
+    "answerIndex": 0,
+    "explanation": "竹中半兵衛は秀吉の軍師として知られる（黒田官兵衛も軍師として有名）。",
+    "difficulty": "normal",
+    "era": "戦国後期",
+    "tags": ["人物", "豊臣秀吉"]
+  },
+  {
+    "id": 39,
+    "question": "「関ヶ原の戦い」で東軍に属した武将として最も近いのは？",
+    "choices": ["石田三成", "小西行長", "島左近", "井伊直政"],
+    "answerIndex": 3,
+    "explanation": "井伊直政は東軍の有力武将として知られる。",
+    "difficulty": "normal",
+    "era": "安土桃山",
+    "tags": ["関ヶ原", "徳川家"]
+  },
+  {
+    "id": 40,
+    "question": "真田氏の拠点として知られる上田城がある現在の都道府県は？",
+    "choices": ["長野県", "岐阜県", "静岡県", "新潟県"],
+    "answerIndex": 0,
+    "explanation": "上田城は現在の長野県上田市にある。",
+    "difficulty": "mania",
+    "era": "戦国後期",
+    "tags": ["城", "真田家"]
   }
-  return arr;
-}
-
-// choices をシャッフルしつつ、answerIndexを追従させる
-function shuffleChoicesKeepAnswer(q) {
-  const items = q.choices.map((text, i) => ({ text, i }));
-  fisherYatesShuffle(items);
-  const newChoices = items.map(x => x.text);
-  const newAnswerIndex = items.findIndex(x => x.i === q.answerIndex);
-  return { ...q, choices: newChoices, answerIndex: newAnswerIndex };
-}
-
-// ---- Data loading ----
-function fileForDifficulty(d) {
-  // ファイル分割する前提（分割しない場合は questions.json に戻してOK）
-  switch (d) {
-    case "easy": return "questions_easy.json";
-    case "normal": return "questions_normal.json";
-    case "hard": return "questions_hard.json";
-    case "mania": return "questions_mania.json";
-    default: return "questions_normal.json";
-  }
-}
-
-function cacheKey(d) {
-  return `sengoku_questions_${d}_v1`; // v1 を上げれば強制更新
-}
-
-async function loadQuestionsByDifficulty(d) {
-  const key = cacheKey(d);
-  const cached = localStorage.getItem(key);
-  if (cached) {
-    try {
-      return JSON.parse(cached);
-    } catch (_) {
-      localStorage.removeItem(key);
-    }
-  }
-
-  const filename = fileForDifficulty(d);
-  const res = await fetch(filename, { cache: "no-store" });
-  if (!res.ok) throw new Error(`Failed to load ${filename}`);
-  const data = await res.json();
-
-  // 保存（2回目以降爆速）
-  try {
-    localStorage.setItem(key, JSON.stringify(data));
-  } catch (_) {
-    // 容量不足なら無視（動作はする）
-  }
-  return data;
-}
-
-// ---- Session building ----
-function buildSessionQuestions(source, count, isReview) {
-  let pool = source.slice();
-
-  if (isReview) {
-    // 間違えたIDだけ
-    const set = new Set(wrongIds);
-    pool = pool.filter(q => set.has(q.id));
-  }
-
-  fisherYatesShuffle(pool);
-
-  // 必要数だけ取り、choicesもシャッフル（正解追従）
-  return pool
-    .slice(0, Math.min(count, pool.length))
-    .map(shuffleChoicesKeepAnswer);
-}
-
-// ---- Quiz flow ----
-function renderQuestion() {
-  locked = false;
-  feedbackEl.innerHTML = "";
-  nextBtn.classList.add("hidden");
-
-  const q = sessionQuestions[index];
-  progressEl.textContent = `${index + 1} / ${sessionQuestions.length}`;
-  modeLabelEl.textContent = mode === "review" ? "復習" : "通常";
-
-  questionEl.textContent = q.question;
-
-  choicesEl.innerHTML = "";
-  q.choices.forEach((c, i) => {
-    const btn = document.createElement("button");
-    btn.className = "choice"; // CSSで整える
-    btn.type = "button";
-    btn.innerHTML = `<span class="opt">${String.fromCharCode(65 + i)}</span><span class="txt">${escapeHtml(c)}</span>`;
-    btn.addEventListener("click", () => onAnswer(i));
-    choicesEl.appendChild(btn);
-  });
-}
-
-function onAnswer(selectedIndex) {
-  if (locked) return;
-  locked = true;
-
-  const q = sessionQuestions[index];
-  const isCorrect = selectedIndex === q.answerIndex;
-
-  // 表示：正誤 + 解説
-  if (isCorrect) {
-    score++;
-    feedbackEl.innerHTML = `
-      <div class="judge ok">正解</div>
-      <div class="kaisetsu">
-        <div class="kaisetutitle">軍議</div>
-        <div class="kaisetsu-body">${escapeHtml(q.explanation || "解説なし")}</div>
-      </div>
-    `;
-  } else {
-    wrongIds.push(q.id);
-    const correctText = q.choices[q.answerIndex];
-    feedbackEl.innerHTML = `
-      <div class="judge ng">不正解</div>
-      <div class="answerline">正解：${escapeHtml(correctText)}</div>
-      <div class="kaisetsu">
-        <div class="kaisetutitle">軍議</div>
-        <div class="kaisetsu-body">${escapeHtml(q.explanation || "解説なし")}</div>
-      </div>
-    `;
-  }
-
-  nextBtn.classList.remove("hidden");
-}
-
-function finish() {
-  show(resultSection);
-  const total = sessionQuestions.length;
-  const rate = total ? Math.round((score / total) * 100) : 0;
-
-  scoreEl.textContent = `正解数：${score} / ${total}`;
-  rateEl.textContent = `正答率：${rate}%`;
-  wrongCountEl.textContent = `誤答：${wrongIds.length}`;
-
-  // 復習ボタン活性（間違いがある時だけ）
-  reviewBtn.disabled = wrongIds.length === 0;
-}
-
-function escapeHtml(s) {
-  return String(s ?? "")
-    .replaceAll("&", "&amp;")
-    .replaceAll("<", "&lt;")
-    .replaceAll(">", "&gt;")
-    .replaceAll('"', "&quot;")
-    .replaceAll("'", "&#039;");
-}
-
-// ---- Start / Review ----
-async function startQuiz(isReview) {
-  try {
-    homeMessageEl.textContent = "読み込み中…";
-
-    allQuestions = await loadQuestionsByDifficulty(selectedDifficulty);
-
-    mode = isReview ? "review" : "normal";
-    score = 0;
-    index = 0;
-
-    sessionQuestions = buildSessionQuestions(allQuestions, QUESTION_COUNT, isReview);
-
-    if (!sessionQuestions.length) {
-      homeMessageEl.textContent = isReview
-        ? "復習する問題がありません（誤答が0件）"
-        : "問題データがありません";
-      return;
-    }
-
-    show(quizSection);
-    renderQuestion();
-  } catch (e) {
-    console.error(e);
-    homeMessageEl.textContent = `読み込み失敗：${e.message}`;
-  }
-}
-
-// ---- Events ----
-startBtn.addEventListener("click", () => startQuiz(false));
-reviewBtn.addEventListener("click", () => startQuiz(true));
-
-nextBtn.addEventListener("click", () => {
-  if (index < sessionQuestions.length - 1) {
-    index++;
-    renderQuestion();
-  } else {
-    finish();
-  }
-});
-
-backBtn.addEventListener("click", () => {
-  show(homeSection);
-  homeMessageEl.textContent = "";
-});
-
-// 初期
-show(homeSection);
-homeMessageEl.textContent = "難易度を選んで開始してください。";
-reviewBtn.disabled = true;
+]
