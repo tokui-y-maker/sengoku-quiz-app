@@ -1,12 +1,13 @@
 /* Sengoku Quiz App v2
  * - Difficulty: easy/normal/hard/mania
- * - 10 questions per run
+ * - QUESTIONS_PER_RUN questions per run
  * - Review mode: wrong-only (stored in localStorage)
  * - Explanation shown after answer (toggleable)
  * - Choice shuffle (toggleable)
  */
 
 const STORAGE_KEY = "sengoku_quiz_v2_state";
+const QUESTIONS_PER_RUN = 10; // ★出題数はここだけ変えればOK
 
 const DIFF_LABEL = {
   easy: "やさしい",
@@ -70,6 +71,10 @@ const el = {
   showExplanation: document.getElementById("showExplanation"),
   showTags: document.getElementById("showTags"),
   clearProgress: document.getElementById("clearProgress"),
+
+  perRunLabel: document.getElementById("perRunLabel"),
+  perRunLabel2: document.getElementById("perRunLabel2"),
+  perRunLabel3: document.getElementById("perRunLabel3"),
 };
 
 function $(sel, root = document) { return root.querySelector(sel); }
@@ -143,7 +148,7 @@ function normalizeQuestion(q){
   // expected schema:
   // { id, question, choices[4], answerIndex, explanation?, tags?, era?, difficulty? }
   if(!q || typeof q !== "object") return null;
-  if(typeof q.id === "undefined") return null;
+  if(typeof q.id === "undefined" || q.id === null) return null;
   if(typeof q.question !== "string") return null;
   if(!Array.isArray(q.choices) || q.choices.length < 2) return null;
   if(typeof q.answerIndex !== "number") return null;
@@ -175,18 +180,18 @@ function buildRunQuestions(mode){
 
   if(pool.length === 0){
     // fallback: if diff has no questions, use all
-    return pickRandom(state.questions, 10);
+    return pickRandom(state.questions, QUESTIONS_PER_RUN);
   }
 
   if(mode === "review"){
     const wrongPool = pool.filter(q => state.wrongIds.has(q.id));
     if(wrongPool.length === 0){
-      return pickRandom(pool, 10);
+      return pickRandom(pool, QUESTIONS_PER_RUN);
     }
-    return pickRandom(wrongPool, Math.min(10, wrongPool.length));
+    return pickRandom(wrongPool, Math.min(QUESTIONS_PER_RUN, wrongPool.length));
   }
 
-  return pickRandom(pool, 10);
+  return pickRandom(pool, QUESTIONS_PER_RUN);
 }
 
 function setBadges(){
@@ -475,6 +480,11 @@ function bindEvents(){
 
 // ---- Init
 (function init(){
+  // 出題数表示（HTML側の「3」固定を根絶）
+  if(el.perRunLabel) el.perRunLabel.textContent = String(QUESTIONS_PER_RUN);
+  if(el.perRunLabel2) el.perRunLabel2.textContent = String(QUESTIONS_PER_RUN);
+  if(el.perRunLabel3) el.perRunLabel3.textContent = String(QUESTIONS_PER_RUN);
+
   loadPersist();
 
   // reflect persisted settings
