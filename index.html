@@ -8,6 +8,7 @@
 </head>
 <body>
   <main class="app">
+    <!-- Topbar -->
     <header class="topbar">
       <div class="topbar-inner">
         <div class="brand">
@@ -17,165 +18,155 @@
           </div>
           <div class="brand-text">
             <h1>戦国時代クイズ</h1>
-            <p class="sub">難易度選択 / 10問出題 / 復習モード / 解説つき</p>
+            <p class="subline">
+              難易度選択 / <span id="perRunLabel">10</span>問出題 / 復習モード / 解説つき
+            </p>
           </div>
         </div>
 
-        <div class="topbar-actions">
-          <button id="openSettings" class="btn btn-ghost" type="button">設定</button>
-        </div>
+        <button id="openSettings" class="icon-btn" type="button" aria-label="設定を開く">
+          設定
+        </button>
       </div>
     </header>
 
-    <section class="panel" id="home">
-      <div class="paper">
-        <h2 class="paper-title">開戦の儀</h2>
-        <p class="paper-lead">難易度を選び、10問勝負。正解の後に解説が出ます。</p>
-
-        <div class="grid">
-          <div class="card">
-            <h3 class="card-title">難易度</h3>
-            <div class="difficulty">
-              <button type="button" class="diff-btn is-active" data-diff="normal">
-                <span class="diff-name">普通</span>
-                <span class="diff-desc">基本〜標準</span>
-              </button>
-              <button type="button" class="diff-btn" data-diff="easy">
-                <span class="diff-name">やさしい</span>
-                <span class="diff-desc">入門</span>
-              </button>
-              <button type="button" class="diff-btn" data-diff="hard">
-                <span class="diff-name">難しい</span>
-                <span class="diff-desc">応用</span>
-              </button>
-              <button type="button" class="diff-btn" data-diff="mania">
-                <span class="diff-name">マニア</span>
-                <span class="diff-desc">沼</span>
-              </button>
-            </div>
-
-            <div class="row">
-              <label class="check">
-                <input type="checkbox" id="shuffleChoices" checked />
-                選択肢をシャッフルする
-              </label>
-            </div>
-          </div>
-
-          <div class="card">
-            <h3 class="card-title">出題</h3>
-            <div class="row row-gap">
-              <button id="startBtn" class="btn btn-primary" type="button">通常モード開始（10問）</button>
-              <button id="reviewBtn" class="btn btn-secondary" type="button" disabled>復習モード開始（間違えた問題）</button>
-            </div>
-            <p id="homeMsg" class="msg" aria-live="polite"></p>
-
-            <div class="stats">
-              <div class="stat">
-                <div class="stat-k">問題数</div>
-                <div class="stat-v"><span id="totalCount">-</span></div>
-              </div>
-              <div class="stat">
-                <div class="stat-k">読み込み</div>
-                <div class="stat-v"><span id="loadState">未</span></div>
-              </div>
-              <div class="stat">
-                <div class="stat-k">復習候補</div>
-                <div class="stat-v"><span id="wrongPool">0</span></div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <p class="note">※ GitHub Pages で動作（questions.json を fetch）。ローカル直開き（file://）は不可。</p>
+    <!-- Home -->
+    <section id="home" class="panel">
+      <div class="panel-head">
+        <h2>開戦の儀</h2>
+        <p class="muted">難易度を選び、<span id="perRunLabel2">10</span>問勝負。正解の後に解説が出ます。</p>
       </div>
-    </section>
 
-    <section class="panel hidden" id="quiz" aria-live="polite">
-      <div class="paper">
-        <div class="quiz-head">
-          <div class="meta">
-            <span class="badge" id="modeBadge">通常</span>
-            <span class="dot">•</span>
-            <span id="diffBadge" class="badge badge-alt">普通</span>
+      <div class="grid2">
+        <div class="card">
+          <div class="card-title">難易度</div>
+          <div class="diff-row">
+            <button class="diff-btn is-active" type="button" data-diff="normal">普通<br><small>基本〜標準</small></button>
+            <button class="diff-btn" type="button" data-diff="easy">やさしい<br><small>入門</small></button>
+            <button class="diff-btn" type="button" data-diff="hard">難しい<br><small>応用</small></button>
+            <button class="diff-btn" type="button" data-diff="mania">マニア<br><small>沼</small></button>
           </div>
-          <div class="progress">
-            <span id="progressText">1 / 10</span>
-            <div class="bar" aria-hidden="true"><div id="barFill" class="bar-fill"></div></div>
-          </div>
+
+          <label class="check">
+            <input id="shuffleChoices" type="checkbox" checked />
+            選択肢をシャッフルする
+          </label>
         </div>
 
-        <div class="qbox">
-          <div class="qno" id="qNo">Q1</div>
-          <h2 class="qtext" id="questionText">読み込み中…</h2>
-          <div class="tags" id="tagRow"></div>
-        </div>
+        <div class="card">
+          <div class="card-title">出陣</div>
 
-        <div class="choices" id="choices"></div>
+          <div class="btn-stack">
+            <button id="startBtn" class="btn primary" type="button">通常モード開始（<span id="perRunLabel3">10</span>問）</button>
+            <button id="reviewBtn" class="btn" type="button" disabled>復習モード開始（間違えた問題）</button>
+          </div>
 
-        <div class="feedback" id="feedback" aria-live="polite"></div>
+          <div class="home-stats">
+            <div class="stat">
+              <div class="k">問題数</div>
+              <div class="v" id="totalCount">-</div>
+            </div>
+            <div class="stat">
+              <div class="k">読み込み</div>
+              <div class="v" id="loadState">未</div>
+            </div>
+            <div class="stat">
+              <div class="k">復習候補</div>
+              <div class="v" id="wrongPool">0</div>
+            </div>
+          </div>
 
-        <div class="actions">
-          <button id="nextBtn" class="btn btn-primary hidden" type="button">次へ</button>
-          <button id="quitBtn" class="btn btn-ghost" type="button">中断</button>
+          <p id="homeMsg" class="msg"></p>
+          <p class="tiny muted">※ GitHub Pages で動作（questions.json を fetch）。ローカル直開き（file://）は不可。</p>
         </div>
       </div>
     </section>
 
-    <section class="panel hidden" id="result">
-      <div class="paper">
-        <h2 class="paper-title">戦果報告</h2>
-        <div class="result-grid">
-          <div class="result-card">
-            <div class="rk">正解数</div>
-            <div class="rv"><span id="scoreNum">0</span> / <span id="scoreDen">10</span></div>
+    <!-- Quiz -->
+    <section id="quiz" class="panel hidden" aria-live="polite">
+      <div class="quiz-top">
+        <div class="badges">
+          <span id="modeBadge" class="badge">通常</span>
+          <span id="diffBadge" class="badge">普通</span>
+        </div>
+
+        <div class="progress">
+          <div id="progressText" class="progress-text">1 / 10</div>
+          <div class="bar">
+            <div id="barFill" class="bar-fill" style="width: 10%"></div>
           </div>
-          <div class="result-card">
-            <div class="rk">正解率</div>
-            <div class="rv"><span id="rateNum">0</span>%</div>
+        </div>
+      </div>
+
+      <div class="qcard">
+        <div class="qhead">
+          <div id="qNo" class="qno">Q1</div>
+          <div id="questionText" class="qtext">…</div>
+        </div>
+
+        <div id="tagRow" class="tag-row"></div>
+      </div>
+
+      <div id="choices" class="choices"></div>
+
+      <div id="feedback" class="feedback"></div>
+
+      <div class="quiz-actions">
+        <button id="quitBtn" class="btn" type="button">中断</button>
+        <button id="nextBtn" class="btn primary hidden" type="button">次へ</button>
+      </div>
+    </section>
+
+    <!-- Result -->
+    <section id="result" class="panel hidden">
+      <div class="panel-head">
+        <h2>戦果</h2>
+        <p class="muted">結果と復習候補。</p>
+      </div>
+
+      <div class="result-grid">
+        <div class="card">
+          <div class="card-title">スコア</div>
+          <div class="big">
+            <span id="scoreNum">0</span> / <span id="scoreDen">10</span>
           </div>
-          <div class="result-card">
-            <div class="rk">間違い</div>
-            <div class="rv"><span id="wrongNum">0</span></div>
+          <div class="muted">正答率：<span id="rateNum">0</span>%</div>
+          <div class="muted">今回の不正解：<span id="wrongNum">0</span></div>
+
+          <div class="btn-stack">
+            <button id="backHomeBtn" class="btn primary" type="button">ホームへ戻る</button>
+            <button id="reviewFromResultBtn" class="btn" type="button" disabled>復習を続ける</button>
           </div>
         </div>
 
-        <div class="actions">
-          <button id="backHomeBtn" class="btn btn-primary" type="button">ホームへ戻る</button>
-          <button id="reviewFromResultBtn" class="btn btn-secondary" type="button">復習モードへ</button>
-        </div>
-
-        <div class="mini">
-          <h3 class="mini-title">間違えた問題（復習用）</h3>
+        <div class="card">
+          <div class="card-title">復習候補（最大12件表示）</div>
           <div id="wrongList" class="wrong-list"></div>
         </div>
       </div>
     </section>
 
     <!-- Settings Modal -->
-    <div class="modal hidden" id="settingsModal" role="dialog" aria-modal="true" aria-labelledby="settingsTitle">
+    <div id="settingsModal" class="modal hidden">
       <div class="modal-backdrop" data-close="1"></div>
-      <div class="modal-card">
+      <div class="modal-panel" role="dialog" aria-modal="true" aria-label="設定">
         <div class="modal-head">
-          <h2 id="settingsTitle">設定</h2>
-          <button class="icon-btn" type="button" data-close="1" aria-label="閉じる">✕</button>
+          <h3>設定</h3>
+          <button class="icon-btn" type="button" data-close="1">閉じる</button>
         </div>
+
         <div class="modal-body">
           <label class="check">
-            <input type="checkbox" id="showExplanation" checked />
-            正解/不正解のあとに解説を表示する
+            <input id="showExplanation" type="checkbox" checked />
+            解説を表示する
           </label>
 
           <label class="check">
-            <input type="checkbox" id="showTags" checked />
-            タグ（人物/合戦/用語など）を表示する
+            <input id="showTags" type="checkbox" checked />
+            タグを表示する
           </label>
 
-          <div class="row">
-            <button id="clearProgress" class="btn btn-ghost" type="button">復習データをクリア</button>
-          </div>
-
-          <p class="note">復習データはこのブラウザの localStorage に保存します。</p>
+          <button id="clearProgress" class="btn danger" type="button">復習データをクリア</button>
         </div>
       </div>
     </div>
