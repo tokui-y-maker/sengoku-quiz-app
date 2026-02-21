@@ -1002,6 +1002,1011 @@
   "era": "江戸初期",
   "tags": ["徳川家"]
 }
+,
+{
+  "id": 101,
+  "question": "武田信玄の法名は？",
+  "choices": ["信玄", "晴信", "法印", "徳栄軒"],
+  "answerIndex": 0,
+  "explanation": "出家後の法名が信玄。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 102,
+  "question": "織田信長の母の名は？",
+  "choices": ["土田御前", "お市の方", "築山殿", "淀殿"],
+  "answerIndex": 0,
+  "explanation": "信長の母は土田御前。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["織田家"]
+},
+{
+  "id": 103,
+  "question": "上杉謙信の死因として有力視されるのは？",
+  "choices": ["脳出血", "戦死", "毒殺", "落馬"],
+  "answerIndex": 0,
+  "explanation": "脳出血説が有力。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["上杉家"]
+},
+{
+  "id": 104,
+  "question": "徳川家康が三方ヶ原で敗走した際の逸話は？",
+  "choices": ["脱糞したと伝わる", "馬を失った", "家臣に裏切られた", "城を失った"],
+  "answerIndex": 0,
+  "explanation": "敗走後に脱糞肖像を描かせた逸話がある。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 105,
+  "question": "織田信長が改名した城の元の名は？",
+  "choices": ["稲葉山城", "安土城", "清洲城", "長浜城"],
+  "answerIndex": 0,
+  "explanation": "稲葉山城を岐阜城に改名。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["城"]
+},
+{
+  "id": 106,
+  "question": "毛利元就の本拠があった現在の県は？",
+  "choices": ["広島県", "岡山県", "山口県", "鳥取県"],
+  "answerIndex": 0,
+  "explanation": "安芸国、現在の広島県。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["毛利家"]
+},
+{
+  "id": 107,
+  "question": "伊達政宗が朝鮮出兵で率いた軍は？",
+  "choices": ["文禄の役", "九州征伐", "長篠の戦い", "関ヶ原の戦い"],
+  "answerIndex": 0,
+  "explanation": "秀吉の朝鮮出兵に参加。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["伊達家"]
+},
+{
+  "id": 108,
+  "question": "豊臣秀吉の養父の姓は？",
+  "choices": ["木下", "羽柴", "豊臣", "浅野"],
+  "answerIndex": 0,
+  "explanation": "木下藤吉郎と名乗っていた。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["豊臣秀吉"]
+},
+{
+  "id": 109,
+  "question": "徳川家康が関ヶ原後に移封した城は？",
+  "choices": ["江戸城", "駿府城", "名古屋城", "彦根城"],
+  "answerIndex": 0,
+  "explanation": "江戸を本拠とした。",
+  "difficulty": "normal",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 110,
+  "question": "直江状が送られた相手は？",
+  "choices": ["徳川家康", "豊臣秀吉", "前田利家", "石田三成"],
+  "answerIndex": 0,
+  "explanation": "家康宛てとされる。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["上杉家"]
+},
+{
+  "id": 111,
+  "question": "長篠の戦いで有名な戦法は？",
+  "choices": ["三段撃ち", "騎馬突撃", "火牛の計", "車懸りの陣"],
+  "answerIndex": 0,
+  "explanation": "鉄砲三段撃ちが有名。",
+  "difficulty": "easy",
+  "era": "戦国後期",
+  "tags": ["合戦"]
+},
+{
+  "id": 112,
+  "question": "武田信玄の軍旗に書かれた文字は？",
+  "choices": ["風林火山", "愛", "毘", "義"],
+  "answerIndex": 0,
+  "explanation": "孫子由来の風林火山。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["武田家"]
+},
+{
+  "id": 113,
+  "question": "浅井長政の居城は？",
+  "choices": ["小谷城", "安土城", "清洲城", "長浜城"],
+  "answerIndex": 0,
+  "explanation": "近江の小谷城。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["浅井家"]
+},
+{
+  "id": 114,
+  "question": "徳川家康の父は？",
+  "choices": ["松平広忠", "松平清康", "松平信康", "松平定吉"],
+  "answerIndex": 0,
+  "explanation": "家康の父は松平広忠。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 115,
+  "question": "織田信長が足利義昭を追放した年は？",
+  "choices": ["1573年", "1568年", "1582年", "1600年"],
+  "answerIndex": 0,
+  "explanation": "1573年に義昭を追放。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["室町幕府"]
+},
+{
+  "id": 116,
+  "question": "武田信玄の死後、家督を継いだ人物は？",
+  "choices": ["武田勝頼", "武田信繁", "武田信虎", "武田晴信"],
+  "answerIndex": 0,
+  "explanation": "勝頼が継承。",
+  "difficulty": "normal",
+  "era": "戦国後期",
+  "tags": ["武田家"]
+},
+{
+  "id": 117,
+  "question": "豊臣秀吉が最初に城主となった城は？",
+  "choices": ["長浜城", "大坂城", "安土城", "小田原城"],
+  "answerIndex": 0,
+  "explanation": "長浜城主となった。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["豊臣秀吉"]
+},
+{
+  "id": 118,
+  "question": "上杉謙信の死後、後継争いをした事件は？",
+  "choices": ["御館の乱", "応仁の乱", "本能寺の変", "小牧長久手"],
+  "answerIndex": 0,
+  "explanation": "御館の乱。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["上杉家"]
+},
+{
+  "id": 119,
+  "question": "徳川家康が最終的に葬られたのは？",
+  "choices": ["久能山", "日光", "駿府", "江戸"],
+  "answerIndex": 1,
+  "explanation": "久能山に埋葬後、日光へ改葬。",
+  "difficulty": "mania",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 120,
+  "question": "織田信長の次男は？",
+  "choices": ["織田信雄", "織田信忠", "織田信孝", "織田秀信"],
+  "answerIndex": 0,
+  "explanation": "次男は信雄。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+}
+,
+{
+  "id": 121,
+  "question": "武田信玄が上杉謙信と対峙した川中島の戦いで、最も激戦とされるのは第何次？",
+  "choices": ["第四次", "第一次", "第五次", "第二次"],
+  "answerIndex": 0,
+  "explanation": "1561年の第四次川中島の戦いが最も有名。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家","上杉家","合戦"]
+},
+{
+  "id": 122,
+  "question": "武田信玄が本拠とした躑躅ヶ崎館がある現在の市は？",
+  "choices": ["甲府市", "松本市", "上田市", "諏訪市"],
+  "answerIndex": 0,
+  "explanation": "現在の山梨県甲府市。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["武田家","城郭"]
+},
+{
+  "id": 123,
+  "question": "織田信長が初めて上洛した年は？",
+  "choices": ["1568年", "1573年", "1582年", "1555年"],
+  "answerIndex": 0,
+  "explanation": "1568年、足利義昭を奉じて上洛。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家","年号"]
+},
+{
+  "id": 124,
+  "question": "毛利元就の三男・小早川隆景の養子となった人物は？",
+  "choices": ["小早川秀秋", "毛利輝元", "吉川元春", "宇喜多秀家"],
+  "answerIndex": 0,
+  "explanation": "秀吉の命で秀秋が養子となった。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["毛利家","豊臣政権"]
+},
+{
+  "id": 125,
+  "question": "織田信長の弟で信長に敗れて自害した人物は？",
+  "choices": ["織田信行", "織田信孝", "織田信雄", "織田秀信"],
+  "answerIndex": 0,
+  "explanation": "織田信行は信長に敗れた。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["織田家"]
+},
+{
+  "id": 126,
+  "question": "徳川家康が幼少期に今川家へ送られる途中、一時身柄を奪った勢力は？",
+  "choices": ["織田家", "武田家", "北条家", "毛利家"],
+  "answerIndex": 0,
+  "explanation": "尾張の織田家に一時拘束された。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["徳川家"]
+},
+{
+  "id": 127,
+  "question": "上杉謙信の家督争いで対立した養子は誰？",
+  "choices": ["上杉景虎", "上杉景勝", "直江兼続", "柿崎景家"],
+  "answerIndex": 0,
+  "explanation": "御館の乱で景虎と景勝が争った。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["上杉家"]
+},
+{
+  "id": 128,
+  "question": "武田勝頼が自害した場所は？",
+  "choices": ["天目山", "川中島", "躑躅ヶ崎館", "甲府城"],
+  "answerIndex": 0,
+  "explanation": "天目山で自害。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["武田家"]
+},
+{
+  "id": 129,
+  "question": "織田信長の家臣で「槍の又左」と呼ばれた人物は？",
+  "choices": ["前田利家", "森長可", "丹羽長秀", "柴田勝家"],
+  "answerIndex": 0,
+  "explanation": "前田利家の異名。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+},
+{
+  "id": 130,
+  "question": "豊臣秀吉が九州征伐で最後に降伏させた大名は？",
+  "choices": ["島津氏", "大友氏", "龍造寺氏", "毛利氏"],
+  "answerIndex": 0,
+  "explanation": "島津氏が降伏。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["豊臣政権"]
+},
+{
+  "id": 131,
+  "question": "徳川家康が関ヶ原の戦い後に処分した西軍の大名で最も石高が大きかったのは？",
+  "choices": ["宇喜多秀家", "石田三成", "小西行長", "大谷吉継"],
+  "answerIndex": 0,
+  "explanation": "宇喜多秀家は大大名だった。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["関ヶ原"]
+},
+{
+  "id": 132,
+  "question": "織田信長の居城・安土城が焼失した原因は？",
+  "choices": ["本能寺の変後の混乱", "雷火", "徳川軍の攻撃", "火山噴火"],
+  "answerIndex": 0,
+  "explanation": "本能寺の変後に焼失。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["城"]
+},
+{
+  "id": 133,
+  "question": "武田信玄の宿敵・北条氏康の居城は？",
+  "choices": ["小田原城", "躑躅ヶ崎館", "川越城", "会津若松城"],
+  "answerIndex": 0,
+  "explanation": "北条氏の本拠は小田原城。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["北条家"]
+},
+{
+  "id": 134,
+  "question": "直江兼続が仕えた上杉家の当主は？",
+  "choices": ["上杉景勝", "上杉謙信", "上杉景虎", "上杉定勝"],
+  "answerIndex": 0,
+  "explanation": "兼続は景勝に仕えた。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["上杉家"]
+},
+{
+  "id": 135,
+  "question": "真田昌幸の父は？",
+  "choices": ["真田幸隆", "真田信繁", "真田信幸", "真田昌輝"],
+  "answerIndex": 0,
+  "explanation": "真田幸隆は武田家の重臣。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["真田家"]
+},
+{
+  "id": 136,
+  "question": "徳川家康が関ヶ原前に対立した上杉家の重臣は？",
+  "choices": ["直江兼続", "柿崎景家", "甘粕景持", "宇佐美定満"],
+  "answerIndex": 0,
+  "explanation": "直江状事件。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["徳川家"]
+},
+{
+  "id": 137,
+  "question": "織田信長の長男で本能寺の変後に討たれたのは？",
+  "choices": ["織田信忠", "織田信雄", "織田信孝", "織田秀信"],
+  "answerIndex": 0,
+  "explanation": "二条城で自害。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["織田家"]
+},
+{
+  "id": 138,
+  "question": "豊臣秀吉が天下統一を果たした象徴的出来事は？",
+  "choices": ["小田原征伐", "関ヶ原の戦い", "桶狭間の戦い", "三方ヶ原の戦い"],
+  "answerIndex": 0,
+  "explanation": "小田原征伐で全国統一。",
+  "difficulty": "normal",
+  "era": "安土桃山",
+  "tags": ["豊臣政権"]
+},
+{
+  "id": 139,
+  "question": "武田信玄の娘で徳川家康の嫡男に嫁いだのは？",
+  "choices": ["五徳姫", "お市の方", "淀殿", "春日局"],
+  "answerIndex": 0,
+  "explanation": "五徳姫は信康に嫁いだ。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["武田家","徳川家"]
+},
+{
+  "id": 140,
+  "question": "徳川家康が将軍宣下を受けた場所は？",
+  "choices": ["京都", "江戸", "駿府", "大坂"],
+  "answerIndex": 0,
+  "explanation": "京都で将軍宣下。",
+  "difficulty": "mania",
+  "era": "江戸初期",
+  "tags": ["徳川家"]
+}
+,
+{
+  "id": 141,
+  "question": "今川氏が制定した分国法は？",
+  "choices": ["今川仮名目録", "甲州法度次第", "塵芥集", "六角式目"],
+  "answerIndex": 0,
+  "explanation": "今川仮名目録は今川氏の分国法。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["分国法","今川家"]
+},
+{
+  "id": 142,
+  "question": "伊達氏が制定した分国法は？",
+  "choices": ["塵芥集", "今川仮名目録", "甲州法度次第", "大内氏掟書"],
+  "answerIndex": 0,
+  "explanation": "塵芥集は伊達氏の分国法。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["分国法","伊達家"]
+},
+{
+  "id": 143,
+  "question": "六角氏が制定した分国法は？",
+  "choices": ["六角式目", "塵芥集", "今川仮名目録", "甲州法度次第"],
+  "answerIndex": 0,
+  "explanation": "六角式目は近江六角氏の法。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["分国法","六角家"]
+},
+{
+  "id": 144,
+  "question": "武田信玄の家臣団の中核を担った重臣層は？",
+  "choices": ["譜代家臣", "外様大名", "国人衆", "御三家"],
+  "answerIndex": 0,
+  "explanation": "武田家は譜代家臣団の結束が強かった。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["武田家","家臣団"]
+},
+{
+  "id": 145,
+  "question": "上杉家で奉行職を務めた家臣として有名なのは？",
+  "choices": ["直江兼続", "柿崎景家", "宇佐美定満", "甘粕景持"],
+  "answerIndex": 0,
+  "explanation": "直江兼続は奉行としても活躍。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["上杉家","家臣団"]
+},
+{
+  "id": 146,
+  "question": "織田家で筆頭家老を務めた人物は？",
+  "choices": ["柴田勝家", "森長可", "佐久間信盛", "滝川一益"],
+  "answerIndex": 0,
+  "explanation": "柴田勝家は筆頭家老格。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["織田家","家臣団"]
+},
+{
+  "id": 147,
+  "question": "徳川四天王に含まれる本多忠勝の通称は？",
+  "choices": ["平八郎", "鬼武蔵", "米五郎左", "槍の又左"],
+  "answerIndex": 0,
+  "explanation": "本多平八郎忠勝。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["徳川家","家臣団"]
+},
+{
+  "id": 148,
+  "question": "豊臣政権で五奉行の筆頭格とされる人物は？",
+  "choices": ["石田三成", "浅野長政", "増田長盛", "長束正家"],
+  "answerIndex": 0,
+  "explanation": "三成は実務の中心。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["豊臣政権","家臣団"]
+},
+{
+  "id": 149,
+  "question": "毛利家の両川体制を支えた一族は？",
+  "choices": ["吉川氏と小早川氏", "宇喜多氏と尼子氏", "浅井氏と朝倉氏", "六角氏と京極氏"],
+  "answerIndex": 0,
+  "explanation": "吉川氏と小早川氏が両川体制。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["毛利家","家臣団"]
+},
+{
+  "id": 150,
+  "question": "武田家の重臣で「赤備え」を率いたのは？",
+  "choices": ["山県昌景", "高坂昌信", "内藤昌豊", "馬場信春"],
+  "answerIndex": 0,
+  "explanation": "山県昌景は赤備えで有名。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["武田家","家臣団"]
+},
+{
+  "id": 151,
+  "question": "上杉家の重臣で「軍神の懐刀」と称されたのは？",
+  "choices": ["宇佐美定満", "直江兼続", "柿崎景家", "甘粕景持"],
+  "answerIndex": 0,
+  "explanation": "宇佐美定満は軍師的存在。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["上杉家","家臣団"]
+},
+{
+  "id": 152,
+  "question": "織田信長の家臣で「方面軍司令官」として各地を任されたのは？",
+  "choices": ["明智光秀", "前田利家", "森長可", "丹羽長秀"],
+  "answerIndex": 0,
+  "explanation": "光秀は丹波方面軍司令官。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["織田家","家臣団"]
+},
+{
+  "id": 153,
+  "question": "徳川家康の家臣団で「三河武士」と呼ばれた層は？",
+  "choices": ["譜代家臣団", "外様大名", "国人衆", "公家衆"],
+  "answerIndex": 0,
+  "explanation": "三河譜代家臣団の結束が強み。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["徳川家","家臣団"]
+},
+{
+  "id": 154,
+  "question": "今川仮名目録を制定した今川氏の当主は？",
+  "choices": ["今川氏親", "今川義元", "今川氏真", "今川範忠"],
+  "answerIndex": 0,
+  "explanation": "氏親が制定。",
+  "difficulty": "mania",
+  "era": "戦国前期",
+  "tags": ["分国法","今川家"]
+},
+{
+  "id": 155,
+  "question": "伊達氏の分国法「塵芥集」を制定した当主は？",
+  "choices": ["伊達稙宗", "伊達政宗", "伊達晴宗", "伊達輝宗"],
+  "answerIndex": 0,
+  "explanation": "稙宗が制定。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["分国法","伊達家"]
+},
+{
+  "id": 156,
+  "question": "武田家の分国法「甲州法度次第」を制定したのは？",
+  "choices": ["武田信玄", "武田信虎", "武田勝頼", "武田信繁"],
+  "answerIndex": 0,
+  "explanation": "信玄が制定。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["分国法","武田家"]
+},
+{
+  "id": 157,
+  "question": "豊臣政権の五大老に含まれない人物は？",
+  "choices": ["石田三成", "徳川家康", "前田利家", "毛利輝元"],
+  "answerIndex": 0,
+  "explanation": "三成は五奉行。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["豊臣政権","家臣団"]
+},
+{
+  "id": 158,
+  "question": "織田信長の家臣で北陸方面軍を担当したのは？",
+  "choices": ["柴田勝家", "明智光秀", "羽柴秀吉", "滝川一益"],
+  "answerIndex": 0,
+  "explanation": "柴田勝家が北陸方面軍。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["織田家","家臣団"]
+},
+{
+  "id": 159,
+  "question": "徳川家康の家臣で井伊直政が率いた部隊は？",
+  "choices": ["赤備え", "黒備え", "白備え", "青備え"],
+  "answerIndex": 0,
+  "explanation": "井伊の赤備えは有名。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["徳川家","家臣団"]
+},
+{
+  "id": 160,
+  "question": "毛利元就の家臣で厳島の戦いで活躍した武将は？",
+  "choices": ["吉川元春", "小早川隆景", "宇喜多秀家", "尼子晴久"],
+  "answerIndex": 1,
+  "explanation": "小早川隆景が活躍。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["毛利家","家臣団"]
+}
+,
+{
+  "id": 161,
+  "question": "分国法とは何を目的として制定された法令か？",
+  "choices": ["大名が領国内を統治するための独自法", "幕府の全国統一法", "寺社専用の法令", "農民一揆の禁止令"],
+  "answerIndex": 0,
+  "explanation": "戦国大名が領国内を統治するために定めた法。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 162,
+  "question": "今川仮名目録が他の分国法と比べて特徴的なのは？",
+  "choices": ["仮名で書かれている", "漢文のみで書かれている", "武士専用である", "農民専用である"],
+  "answerIndex": 0,
+  "explanation": "仮名書きで分かりやすく書かれている点が特徴。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","今川家"]
+},
+{
+  "id": 163,
+  "question": "塵芥集が制定された主な背景は？",
+  "choices": ["家臣団統制と秩序維持", "幕府からの命令", "朝廷の勅命", "外国圧力"],
+  "answerIndex": 0,
+  "explanation": "家臣団統制と領国秩序の安定が目的。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","伊達家"]
+},
+{
+  "id": 164,
+  "question": "甲州法度次第の特徴として正しいのは？",
+  "choices": ["家臣の軍役義務を明確化", "農民の参政権保障", "商人の自治拡大", "公家の特権強化"],
+  "answerIndex": 0,
+  "explanation": "軍役・家臣統制を明確に規定。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","武田家"]
+},
+{
+  "id": 165,
+  "question": "分国法が多く制定された時代背景は？",
+  "choices": ["中央権力の弱体化", "江戸幕府の安定期", "鎌倉幕府成立直後", "明治維新直後"],
+  "answerIndex": 0,
+  "explanation": "室町幕府の衰退により各大名が自立。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 166,
+  "question": "六角式目の主な目的は？",
+  "choices": ["家臣の私闘禁止", "農民武装化推進", "商業独占推進", "朝廷保護"],
+  "answerIndex": 0,
+  "explanation": "家臣間の争いを抑える規定が多い。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","六角家"]
+},
+{
+  "id": 167,
+  "question": "分国法に多く見られる規定内容は？",
+  "choices": ["家臣統制と裁判規定", "外交条約", "海外貿易法", "貨幣鋳造法"],
+  "answerIndex": 0,
+  "explanation": "家臣団統制や裁判基準が中心。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 168,
+  "question": "今川仮名目録追加を出した今川当主は？",
+  "choices": ["今川義元", "今川氏真", "今川氏親", "今川範忠"],
+  "answerIndex": 0,
+  "explanation": "義元が追加法を出した。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","今川家"]
+},
+{
+  "id": 169,
+  "question": "分国法の制定は何の強化につながったか？",
+  "choices": ["戦国大名の中央集権化", "農民自治", "朝廷権威回復", "幕府再建"],
+  "answerIndex": 0,
+  "explanation": "戦国大名の支配体制強化。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 170,
+  "question": "塵芥集の条文数は約何条？",
+  "choices": ["100条前後", "20条", "300条", "5条"],
+  "answerIndex": 0,
+  "explanation": "100条前後とされる。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","伊達家"]
+},
+{
+  "id": 171,
+  "question": "甲州法度次第の条文数はおよそ何条？",
+  "choices": ["50条前後", "5条", "200条", "150条"],
+  "answerIndex": 0,
+  "explanation": "50条前後で構成。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","武田家"]
+},
+{
+  "id": 172,
+  "question": "分国法が対象とした主な階層は？",
+  "choices": ["家臣団", "公家", "天皇", "外国人"],
+  "answerIndex": 0,
+  "explanation": "主に家臣団を対象。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 173,
+  "question": "今川仮名目録が出された国は？",
+  "choices": ["駿河", "尾張", "越後", "相模"],
+  "answerIndex": 0,
+  "explanation": "今川氏の本拠は駿河。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","今川家"]
+},
+{
+  "id": 174,
+  "question": "塵芥集が制定された国は？",
+  "choices": ["陸奥", "尾張", "駿河", "甲斐"],
+  "answerIndex": 0,
+  "explanation": "伊達氏は陸奥。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","伊達家"]
+},
+{
+  "id": 175,
+  "question": "甲州法度次第が制定された国は？",
+  "choices": ["甲斐", "美濃", "安芸", "近江"],
+  "answerIndex": 0,
+  "explanation": "武田氏の本拠は甲斐。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","武田家"]
+},
+{
+  "id": 176,
+  "question": "六角式目が制定された国は？",
+  "choices": ["近江", "越後", "三河", "播磨"],
+  "answerIndex": 0,
+  "explanation": "六角氏は近江。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法","六角家"]
+},
+{
+  "id": 177,
+  "question": "分国法が幕府法と大きく異なる点は？",
+  "choices": ["大名独自の判断で制定", "朝廷の命令で制定", "全国共通", "外国法の翻訳"],
+  "answerIndex": 0,
+  "explanation": "各大名が独自に制定。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 178,
+  "question": "分国法に多く見られる処罰の特徴は？",
+  "choices": ["厳罰主義", "無罪放免主義", "公開投票制", "国外追放のみ"],
+  "answerIndex": 0,
+  "explanation": "家臣統制のため厳罰規定が多い。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 179,
+  "question": "分国法制定は戦国大名の何を象徴するか？",
+  "choices": ["領国の主権確立", "幕府依存", "農民自治拡大", "朝廷復興"],
+  "answerIndex": 0,
+  "explanation": "独立した支配権の確立。",
+  "difficulty": "hard",
+  "era": "戦国",
+  "tags": ["分国法"]
+},
+{
+  "id": 180,
+  "question": "分国法の条文に多く見られる内容は？",
+  "choices": ["私闘禁止と訴訟規定", "海外貿易優遇", "寺社免税拡大", "女性参政権"],
+  "answerIndex": 0,
+  "explanation": "家臣間の私闘禁止など秩序維持規定。",
+  "difficulty": "mania",
+  "era": "戦国",
+  "tags": ["分国法"]
+}
+,
+{
+  "id": 181,
+  "question": "武田家の重臣で『武田四天王』に含まれない人物は？",
+  "choices": ["山県昌景", "馬場信春", "内藤昌豊", "山本勘助"],
+  "answerIndex": 3,
+  "explanation": "山本勘助は軍師として有名だが四天王には含まれない。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","武田家"]
+},
+{
+  "id": 182,
+  "question": "徳川四天王の中で関ヶ原後に彦根藩主となったのは？",
+  "choices": ["井伊直政", "本多忠勝", "榊原康政", "酒井忠次"],
+  "answerIndex": 0,
+  "explanation": "井伊直政は彦根藩主。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["家臣団","徳川家"]
+},
+{
+  "id": 183,
+  "question": "織田家の家臣で『米五郎左』と呼ばれた人物は？",
+  "choices": ["丹羽長秀", "前田利家", "森長可", "柴田勝家"],
+  "answerIndex": 0,
+  "explanation": "丹羽長秀の通称。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["家臣団","織田家"]
+},
+{
+  "id": 184,
+  "question": "毛利家の両川体制を支えた吉川氏の当主は？",
+  "choices": ["吉川元春", "小早川隆景", "毛利輝元", "尼子晴久"],
+  "answerIndex": 0,
+  "explanation": "吉川元春は毛利家の重臣。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["家臣団","毛利家"]
+},
+{
+  "id": 185,
+  "question": "上杉謙信の重臣で『車懸りの陣』を支えた武将は？",
+  "choices": ["柿崎景家", "直江兼続", "宇佐美定満", "甘粕景持"],
+  "answerIndex": 0,
+  "explanation": "柿崎景家は猛将として知られる。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","上杉家"]
+},
+{
+  "id": 186,
+  "question": "豊臣政権の五奉行で検地を担当した中心人物は？",
+  "choices": ["石田三成", "浅野長政", "増田長盛", "長束正家"],
+  "answerIndex": 0,
+  "explanation": "三成は検地実務を主導。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["家臣団","豊臣政権"]
+},
+{
+  "id": 187,
+  "question": "武田家の重臣で長篠の戦いで討死した人物は？",
+  "choices": ["馬場信春", "山県昌景", "内藤昌豊", "高坂昌信"],
+  "answerIndex": 0,
+  "explanation": "馬場信春は長篠で討死。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["家臣団","武田家"]
+},
+{
+  "id": 188,
+  "question": "徳川家臣で三河武士の象徴とされる人物は？",
+  "choices": ["酒井忠次", "井伊直政", "本多忠勝", "榊原康政"],
+  "answerIndex": 0,
+  "explanation": "酒井忠次は三河武士の代表格。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","徳川家"]
+},
+{
+  "id": 189,
+  "question": "織田家の家臣で中国方面軍を任されたのは？",
+  "choices": ["羽柴秀吉", "柴田勝家", "明智光秀", "滝川一益"],
+  "answerIndex": 0,
+  "explanation": "秀吉は中国攻めを担当。",
+  "difficulty": "hard",
+  "era": "戦国後期",
+  "tags": ["家臣団","織田家"]
+},
+{
+  "id": 190,
+  "question": "上杉景勝の重臣で会津移封後も仕え続けたのは？",
+  "choices": ["直江兼続", "柿崎景家", "宇佐美定満", "甘粕景持"],
+  "answerIndex": 0,
+  "explanation": "直江兼続は会津でも重臣。",
+  "difficulty": "mania",
+  "era": "安土桃山",
+  "tags": ["家臣団","上杉家"]
+},
+{
+  "id": 191,
+  "question": "武田家の軍師とされる人物は？",
+  "choices": ["山本勘助", "内藤昌豊", "馬場信春", "高坂昌信"],
+  "answerIndex": 0,
+  "explanation": "山本勘助は軍師的存在。",
+  "difficulty": "normal",
+  "era": "戦国中期",
+  "tags": ["家臣団","武田家"]
+},
+{
+  "id": 192,
+  "question": "徳川家臣で『鬼作左』と呼ばれたのは？",
+  "choices": ["本多重次", "本多忠勝", "酒井忠次", "榊原康政"],
+  "answerIndex": 0,
+  "explanation": "本多重次の異名。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","徳川家"]
+},
+{
+  "id": 193,
+  "question": "織田家臣で北条攻めを担当したのは？",
+  "choices": ["滝川一益", "羽柴秀吉", "柴田勝家", "明智光秀"],
+  "answerIndex": 0,
+  "explanation": "滝川一益は関東方面。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["家臣団","織田家"]
+},
+{
+  "id": 194,
+  "question": "毛利家臣で厳島の戦いを支えた両川の一人は？",
+  "choices": ["小早川隆景", "吉川元春", "毛利輝元", "尼子晴久"],
+  "answerIndex": 0,
+  "explanation": "隆景は水軍を活用。",
+  "difficulty": "hard",
+  "era": "戦国中期",
+  "tags": ["家臣団","毛利家"]
+},
+{
+  "id": 195,
+  "question": "豊臣五大老の一人で加賀の大名は？",
+  "choices": ["前田利家", "宇喜多秀家", "毛利輝元", "徳川家康"],
+  "answerIndex": 0,
+  "explanation": "前田利家は加賀大名。",
+  "difficulty": "hard",
+  "era": "安土桃山",
+  "tags": ["家臣団","豊臣政権"]
+},
+{
+  "id": 196,
+  "question": "上杉家の猛将で『越後の虎』を支えた武将は？",
+  "choices": ["柿崎景家", "直江兼続", "甘粕景持", "宇佐美定満"],
+  "answerIndex": 0,
+  "explanation": "柿崎景家は猛将。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","上杉家"]
+},
+{
+  "id": 197,
+  "question": "徳川家臣で三河一向一揆鎮圧に尽力した人物は？",
+  "choices": ["酒井忠次", "井伊直政", "本多忠勝", "榊原康政"],
+  "answerIndex": 0,
+  "explanation": "酒井忠次が鎮圧に尽力。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","徳川家"]
+},
+{
+  "id": 198,
+  "question": "武田家臣で『逃げ弾正』と呼ばれたのは？",
+  "choices": ["高坂昌信", "馬場信春", "山県昌景", "内藤昌豊"],
+  "answerIndex": 0,
+  "explanation": "高坂昌信の異名。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","武田家"]
+},
+{
+  "id": 199,
+  "question": "織田家臣で美濃攻略に活躍した武将は？",
+  "choices": ["森可成", "柴田勝家", "丹羽長秀", "前田利家"],
+  "answerIndex": 0,
+  "explanation": "森可成は美濃攻略に貢献。",
+  "difficulty": "mania",
+  "era": "戦国中期",
+  "tags": ["家臣団","織田家"]
+},
+{
+  "id": 200,
+  "question": "徳川家臣で長篠の戦いで鉄砲隊を指揮したのは？",
+  "choices": ["酒井忠次", "本多忠勝", "榊原康政", "井伊直政"],
+  "answerIndex": 0,
+  "explanation": "酒井忠次が別働隊を率いた。",
+  "difficulty": "mania",
+  "era": "戦国後期",
+  "tags": ["家臣団","徳川家"]
+}
 ]
 
 
