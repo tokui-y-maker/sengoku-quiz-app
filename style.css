@@ -361,6 +361,10 @@ body{
   cursor:pointer;
   transition: transform .12s ease, border-color .12s ease, background .12s ease;
   min-height:56px;
+
+  /* ★追加：ここが本命 */
+  color: var(--ink);
+  -webkit-text-fill-color: var(--ink);
 }
 .choice:hover{transform: translateY(-1px); border-color: rgba(215,183,106,.32);}
 .choice:disabled{cursor:not-allowed; opacity:.65; transform:none;}
@@ -494,3 +498,4 @@ body{
   display:grid;
   gap:12px;
 }
+.choice span { color: var(--ink); }
